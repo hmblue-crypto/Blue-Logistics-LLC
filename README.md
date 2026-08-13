@@ -1,20 +1,8 @@
-BLUE LOGISTICS LLC — PATRIOTIC WEBSITE UPDATE
+BLUE LOGISTICS LLC — CACHE FIX
 
-Upload to repository root:
-index.html
-styles.css
-script.js
-blue-logistics-logo.png
-hunter-blue.png
-matt-handschu.png
-hero-reference.png
+Upload ALL files in this ZIP to the root of GitHub.
 
-README.md is optional.
-
-This version includes:
-- stronger top branding
-- approved patriotic visual direction
-- visible services: LTL, FTL, Imports, Warehousing, Nationwide Coverage
-- Hunter personal LinkedIn button
-- colored social media branding
-- quote form to hmblue@bluelogisticsllc.us
+IMPORTANT:
+- This version uses NEW filenames site-v2.css and site-v2.js.
+- You may delete the old styles.css and script.js AFTER this version is live.
+- Keep blue-logistics-logo.png, hunter-blue.png, matt-handschu.png, hero-reference.png.
