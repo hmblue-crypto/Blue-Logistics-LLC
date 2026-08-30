@@ -1,5 +1,8 @@
 const m=document.querySelector('.menu'),n=document.querySelector('.navlinks');m?.addEventListener('click',()=>n.classList.toggle('open'));document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>n.classList.remove('open')));const y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
 
+if(n&&!n.querySelector('a[href="portal.html"]')){const portal=document.createElement('a');portal.href='portal.html';portal.textContent='Customer Portal';const quote=n.querySelector('.cta-nav');n.insertBefore(portal,quote||null);portal.addEventListener('click',()=>n.classList.remove('open'))}
+const connect=document.querySelector('footer .footer-grid>div:last-child');if(connect&&!connect.querySelector('a[href="portal.html"]')){const portalFoot=document.createElement('a');portalFoot.href='portal.html';portalFoot.textContent='Customer Portal';connect.prepend(portalFoot)}
+
 if(!document.querySelector('.mobile-quote')){
  const mobileQuote=document.createElement('a');
  mobileQuote.className='mobile-quote';mobileQuote.href='contact.html#quote';mobileQuote.textContent='Request a Freight Quote →';mobileQuote.setAttribute('aria-label','Request a freight quote');
