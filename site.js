@@ -1,5 +1,11 @@
 const m=document.querySelector('.menu'),n=document.querySelector('.navlinks');m?.addEventListener('click',()=>n.classList.toggle('open'));document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>n.classList.remove('open')));const y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
 
+if(!document.querySelector('.mobile-quote')){
+ const mobileQuote=document.createElement('a');
+ mobileQuote.className='mobile-quote';mobileQuote.href='contact.html#quote';mobileQuote.textContent='Request a Freight Quote →';mobileQuote.setAttribute('aria-label','Request a freight quote');
+ document.body.appendChild(mobileQuote);
+}
+
 const quoteForm=document.getElementById('quoteForm');
 if(quoteForm){
  const quoteSubmit=document.getElementById('quoteSubmit'),quoteStatus=document.getElementById('quoteStatus');
