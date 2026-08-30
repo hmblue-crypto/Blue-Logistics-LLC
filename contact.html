@@ -17,8 +17,11 @@
 <div class="row"><label>Commodity<input name="commodity" placeholder="What are we moving?"></label><label>Weight<input name="weight" placeholder="Total lbs"></label></div>
 <div class="row"><label>Pallet / Piece Count<input min="0" max="9999" type="number" name="pallet_count" placeholder="e.g. 12"></label><label>Equipment<select name="equipment_type"><option value="">Not sure / Other</option><option>Dry Van</option><option>Reefer</option><option>Flatbed</option><option>Box Truck</option><option>Sprinter / Cargo Van</option><option>LTL Common Carrier</option><option>Drayage / Container</option></select></label></div>
 <label>Shipment Details<textarea rows="6" name="shipment_details" placeholder="Dimensions, stackable/non-stackable, appointments, accessorials, special handling, urgent timing, or anything else we should know."></textarea></label>
+<label>Optional Documents<input id="quoteAttachments" type="file" name="attachments" multiple accept=".pdf,.jpg,.jpeg,.png,.webp,.doc,.docx"><small class="field-help">Attach up to 3 files, 10 MB each: BOL, packing list, shipment photo, PDF, DOC, or DOCX. Documents are stored privately.</small></label>
+<label class="consent-row"><input type="checkbox" name="sms_opt_in" value="true"><span>Text me a confirmation and reference number. Message and data rates may apply. Reply STOP to opt out.</span></label>
 <div id="quoteStatus" role="status" aria-live="polite" style="margin:12px 0;font-weight:700"></div>
 <button id="quoteSubmit" class="btn primary full" type="submit">Request My Freight Quote →</button>
+<button id="repeatQuote" class="btn repeat-quote full" type="button" hidden>Request Another Similar Quote</button>
 <p style="font-size:.82rem;opacity:.75;margin-top:12px">A green confirmation with a reference number means the request is stored in the Blue Logistics system. Submitting this form requests a quote only; it does not book or tender a shipment until Blue Logistics confirms pricing and capacity.</p>
 </form></div></section></main>
 <footer><div class="container footer-grid">
