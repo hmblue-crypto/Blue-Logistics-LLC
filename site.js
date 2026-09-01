@@ -9,6 +9,34 @@ if(!document.querySelector('.mobile-quote')){
  document.body.appendChild(mobileQuote);
 }
 
+// Phase 2 public-site conversion upgrades.
+if(document.body.classList.contains('home-v2')){
+ const heroCopy=document.querySelector('.hero-copy');
+ if(heroCopy&&!heroCopy.querySelector('.hero-proof-row')){
+  const proof=document.createElement('div');proof.className='hero-proof-row';
+  proof.innerHTML='<a class="hero-rating-badge" target="_blank" rel="noopener" href="https://g.page/r/CbO6Az7x38l3EBM"><span class="hero-rating-stars">★★★★★</span><strong>4.9 Google Rating</strong><small>49 public reviews</small></a><a class="hero-track-btn" href="portal.html"><span>⌖</span><div><strong>Track Shipment</strong><small>Open Customer Portal</small></div></a>';
+  const benefits=heroCopy.querySelector('.hero-benefits');(benefits||heroCopy).insertAdjacentElement('afterend',proof);
+ }
+ const capability=document.querySelector('.capability-showcase');
+ if(capability&&!document.querySelector('.case-study-showcase')){
+  const cases=document.createElement('section');cases.className='section case-study-showcase';
+  cases.innerHTML='<div class="container"><div class="section-head center"><span>SHIPMENT EXAMPLES</span><h2>How we approach real freight problems.</h2><p>Illustrative examples of the type of transportation challenges Blue Logistics is built to support. Customer names and private shipment details are not published without approval.</p></div><div class="case-study-grid"><article class="case-study-card"><div class="case-route">NC → TX</div><span>FTL DRY VAN • TIME-SENSITIVE</span><h3>Urgent capacity without losing communication.</h3><p><b>Challenge:</b> A shipment needs dependable truckload coverage on a compressed pickup window.</p><p><b>Blue approach:</b> Match the lane to the right equipment, communicate changes quickly, and stay engaged through delivery.</p><small>Representative capability example</small></article><article class="case-study-card"><div class="case-route">PORT → WAREHOUSE</div><span>IMPORT • INLAND TRANSPORT</span><h3>Connecting inbound cargo to the next destination.</h3><p><b>Challenge:</b> Imported freight needs coordinated pickup, inland transport and a warehouse handoff.</p><p><b>Blue approach:</b> Coordinate the transportation pieces through one responsive point of contact.</p><small>Representative capability example</small></article><article class="case-study-card"><div class="case-route">MULTI-LANE</div><span>LTL + FTL • RECURRING SUPPORT</span><h3>One contact for multiple freight needs.</h3><p><b>Challenge:</b> A shipper has recurring lanes using different modes and timing requirements.</p><p><b>Blue approach:</b> Centralize quoting, shipment coordination and follow-through across the account.</p><small>Representative capability example</small></article></div><div class="case-study-actions"><a class="btn primary" href="contact.html#quote">Talk Through Your Shipment →</a><a class="btn outline dark-outline" href="portal.html">Track an Existing Shipment →</a></div></div>';
+  capability.insertAdjacentElement('afterend',cases);
+ }
+}
+
+// Give service pages a consistent proof strip and portal path without changing their core content.
+if(document.body.classList.contains('service-page')){
+ const ph=document.querySelector('.pagehero');
+ if(ph&&!document.querySelector('.service-proof-bar')){
+  const bar=document.createElement('section');bar.className='service-proof-bar';bar.innerHTML='<div class="container service-proof-grid"><div><strong>Authorized Freight Broker</strong><small>MC 1689495</small></div><div><strong>4.9 Google Rating</strong><small>49 public reviews</small></div><div><strong>Nationwide Support</strong><small>LTL • FTL • Imports • Storage</small></div><div><strong>Customer Portal</strong><small>Tracking + documents</small></div></div>';ph.insertAdjacentElement('afterend',bar);
+ }
+ const firstHead=document.querySelector('.service-page main .section-head');
+ if(firstHead&&!firstHead.querySelector('.service-mini-actions')){
+  const acts=document.createElement('div');acts.className='service-mini-actions';acts.innerHTML='<a class="btn primary" href="contact.html#quote">Request a Quote →</a><a class="btn portal-link" href="portal.html">Track Shipment / Portal →</a>';firstHead.appendChild(acts);
+ }
+}
+
 const quoteForm=document.getElementById('quoteForm');
 if(quoteForm){
  const quoteSubmit=document.getElementById('quoteSubmit'),quoteStatus=document.getElementById('quoteStatus'),repeatQuote=document.getElementById('repeatQuote'),attachments=document.getElementById('quoteAttachments');
