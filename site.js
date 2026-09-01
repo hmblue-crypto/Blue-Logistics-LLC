@@ -39,6 +39,38 @@ if(document.body.classList.contains('service-page')){
 
 const quoteForm=document.getElementById('quoteForm');
 if(quoteForm){
+ // Turn the existing homepage form into a guided 3-step wizard without changing field names or backend intake.
+ if(document.body.classList.contains('home-v2')&&!quoteForm.dataset.wizardReady){
+  quoteForm.dataset.wizardReady='true';
+  const fields={
+   first:quoteForm.querySelector('[name="first_name"]')?.closest('label'),last:quoteForm.querySelector('[name="last_name"]')?.closest('label'),email:quoteForm.querySelector('[name="email"]')?.closest('label'),origin:quoteForm.querySelector('[name="pickup_location"]')?.closest('label'),destination:quoteForm.querySelector('[name="delivery_location"]')?.closest('label'),service:quoteForm.querySelector('[name="service"]')?.closest('label'),weight:quoteForm.querySelector('[name="weight"]')?.closest('label'),date:quoteForm.querySelector('[name="pickup_date"]')?.closest('label')
+  };
+  const status=quoteForm.querySelector('#quoteStatus'),submit=quoteForm.querySelector('#quoteSubmit'),repeat=quoteForm.querySelector('#repeatQuote'),note=quoteForm.querySelector('.hero-form-note');
+  const oldRows=[...quoteForm.querySelectorAll('.hero-form-row')];
+  oldRows.forEach(r=>{[...r.children].forEach(c=>quoteForm.insertBefore(c,r));r.remove()});
+  const title=quoteForm.querySelector('h2');if(title)title.textContent='Get My Freight Quote';
+  const kicker=quoteForm.querySelector('.quote-kicker');if(kicker)kicker.textContent='FAST • SIMPLE • SECURE';
+  const progress=document.createElement('div');progress.className='quote-wizard-progress';progress.innerHTML='<button type="button" data-step-dot="1"><b>1</b><span>Lane</span></button><i></i><button type="button" data-step-dot="2"><b>2</b><span>Freight</span></button><i></i><button type="button" data-step-dot="3"><b>3</b><span>Contact</span></button>';
+  title?.insertAdjacentElement('afterend',progress);
+  const intro=document.createElement('p');intro.className='quote-wizard-intro';intro.textContent='Answer a few quick questions. No account required.';progress.insertAdjacentElement('afterend',intro);
+  const makeStep=(num,heading,sub)=>{const s=document.createElement('section');s.className='quote-wizard-step';s.dataset.step=String(num);s.innerHTML=`<div class="quote-step-heading"><span>STEP ${num} OF 3</span><h3>${heading}</h3><p>${sub}</p></div>`;return s};
+  const s1=makeStep(1,'Where is it going?','Start with the pickup and delivery locations.');
+  const laneRow=document.createElement('div');laneRow.className='hero-form-row';fields.origin&&laneRow.append(fields.origin);fields.destination&&laneRow.append(fields.destination);s1.append(laneRow);fields.date&&s1.append(fields.date);
+  const s2=makeStep(2,'What are you shipping?','Choose the closest freight type. You can keep it simple.');
+  const freightRow=document.createElement('div');freightRow.className='hero-form-row';fields.service&&freightRow.append(fields.service);fields.weight&&freightRow.append(fields.weight);s2.append(freightRow);
+  const optional=document.createElement('div');optional.className='quote-wizard-help';optional.innerHTML='<span>Not sure?</span> Pick <b>Other</b> and our team will help determine the right equipment.';s2.append(optional);
+  const s3=makeStep(3,'How can we reach you?','We’ll use this only to respond to your freight request.');
+  const nameRow=document.createElement('div');nameRow.className='hero-form-row';fields.first&&nameRow.append(fields.first);fields.last&&nameRow.append(fields.last);s3.append(nameRow);fields.email&&s3.append(fields.email);
+  const controls=document.createElement('div');controls.className='quote-wizard-controls';controls.innerHTML='<button type="button" class="quote-back">← Back</button><button type="button" class="btn primary quote-next">Next →</button>';
+  quoteForm.insertBefore(s1,status);quoteForm.insertBefore(s2,status);quoteForm.insertBefore(s3,status);quoteForm.insertBefore(controls,status);
+  let step=1;
+  const stepEls=[s1,s2,s3],dots=[...progress.querySelectorAll('[data-step-dot]')],back=controls.querySelector('.quote-back'),next=controls.querySelector('.quote-next');
+  const requiredByStep={1:['pickup_location','delivery_location'],2:['service'],3:['first_name','last_name','email']};
+  const showStep=(num)=>{step=Math.max(1,Math.min(3,num));stepEls.forEach((el,i)=>el.classList.toggle('active',i===step-1));dots.forEach((d,i)=>{d.classList.toggle('active',i===step-1);d.classList.toggle('done',i<step-1)});back.style.visibility=step===1?'hidden':'visible';next.hidden=step===3;submit.hidden=step!==3;if(note)note.hidden=step!==3;if(repeat&&!repeat.hidden)repeat.hidden=step!==3;intro.textContent=step===1?'Answer a few quick questions. No account required.':step===2?'You’re halfway there. Basic freight details are enough.':'Last step — tell us where to send the quote.'};
+  const validateStep=()=>{for(const name of requiredByStep[step]){const el=quoteForm.elements.namedItem(name);if(el&&!el.checkValidity()){el.reportValidity();return false}}return true};
+  next.addEventListener('click',()=>{if(validateStep())showStep(step+1)});back.addEventListener('click',()=>showStep(step-1));dots.forEach(d=>d.addEventListener('click',()=>{const target=Number(d.dataset.stepDot);if(target<step)showStep(target)}));
+  quoteForm.addEventListener('reset',()=>setTimeout(()=>showStep(1),0));showStep(1);
+ }
  const quoteSubmit=document.getElementById('quoteSubmit'),quoteStatus=document.getElementById('quoteStatus'),repeatQuote=document.getElementById('repeatQuote'),attachments=document.getElementById('quoteAttachments');
  let lastQuoteData=null,isRepeat=false;
  const params=new URLSearchParams(location.search),trackingKeys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid'];
