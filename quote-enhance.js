@@ -19,23 +19,16 @@
   const savedNote=document.createElement('div');savedNote.className='quote-draft-note';savedNote.innerHTML='<span>✓</span> Your progress is protected while this tab stays open.';form.querySelector('.quote-wizard-intro')?.insertAdjacentElement('afterend',savedNote);
 
   const value=n=>String(form.elements.namedItem(n)?.value||'').trim();
-  const updateReview=()=>{
-   const lane=[value('pickup_location'),value('delivery_location')].filter(Boolean).join(' → ')||'—';
-   const freight=[value('service'),value('weight')].filter(Boolean).join(' • ')||'—';
-   const contact=[value('first_name'),value('last_name')].filter(Boolean).join(' ')||value('email')||'—';
-   const map={lane,freight,date:value('pickup_date')||'Flexible / not entered',contact};Object.entries(map).forEach(([k,v])=>{const el=review.querySelector(`[data-review="${k}"]`);if(el)el.textContent=v});
-  };
+  const updateReview=()=>{const lane=[value('pickup_location'),value('delivery_location')].filter(Boolean).join(' → ')||'—';const freight=[value('service'),value('weight')].filter(Boolean).join(' • ')||'—';const contact=[value('first_name'),value('last_name')].filter(Boolean).join(' ')||value('email')||'—';const map={lane,freight,date:value('pickup_date')||'Flexible / not entered',contact};Object.entries(map).forEach(([k,v])=>{const el=review.querySelector(`[data-review="${k}"]`);if(el)el.textContent=v})};
 
   const draftKey='blue_quote_draft_v2';
   const saveDraft=()=>{try{const data={};new FormData(form).forEach((v,k)=>{if(typeof v==='string'&&k!=='sms_opt_in')data[k]=v});data.sms_opt_in=!!form.elements.namedItem('sms_opt_in')?.checked;sessionStorage.setItem(draftKey,JSON.stringify(data))}catch{}updateReview()};
-  try{const raw=sessionStorage.getItem(draftKey);if(raw){const data=JSON.parse(raw);Object.entries(data).forEach(([k,v])=>{const el=form.elements.namedItem(k);if(!el||el.type==='file')return;if(el.type==='checkbox')el.checked=!!v;else if(!el.value)el.value=String(v??'')});}}
+  try{const raw=sessionStorage.getItem(draftKey);if(raw){const data=JSON.parse(raw);Object.entries(data).forEach(([k,v])=>{const el=form.elements.namedItem(k);if(!el||el.type==='file')return;if(el.type==='checkbox')el.checked=!!v;else if(!el.value)el.value=String(v??'')})}}
   catch{}
-  form.addEventListener('input',saveDraft);form.addEventListener('change',saveDraft);
-  form.addEventListener('reset',()=>{try{sessionStorage.removeItem(draftKey)}catch{}setTimeout(updateReview,0)});
-  updateReview();
+  try{const raw=sessionStorage.getItem('blue_portal_requote');if(raw){const data=JSON.parse(raw);Object.entries(data).forEach(([k,v])=>{const el=form.elements.namedItem(k);if(el&&el.type!=='file'&&v)el.value=String(v)});sessionStorage.removeItem('blue_portal_requote');const note=document.createElement('div');note.className='quote-draft-note';note.innerHTML='<span>↻</span> Your saved Blue Logistics lane was loaded. Add a new pickup date and review the details.';savedNote.insertAdjacentElement('afterend',note);details.open=true;setTimeout(()=>form.scrollIntoView({behavior:'smooth',block:'start'}),100)}}catch{}
+  form.addEventListener('input',saveDraft);form.addEventListener('change',saveDraft);form.addEventListener('reset',()=>{try{sessionStorage.removeItem(draftKey)}catch{}setTimeout(updateReview,0)});updateReview();
 
-  const fileInput=form.querySelector('#quoteAttachments');
-  fileInput?.addEventListener('change',()=>{const holder=fileInput.closest('.quote-upload');const count=fileInput.files?.length||0;holder?.classList.toggle('has-files',count>0);const small=holder?.querySelector('small');if(small)small.textContent=count?`${count} file${count===1?'':'s'} selected`:'Optional • up to 3 files • 10 MB each';});
+  const fileInput=form.querySelector('#quoteAttachments');fileInput?.addEventListener('change',()=>{const holder=fileInput.closest('.quote-upload');const count=fileInput.files?.length||0;holder?.classList.toggle('has-files',count>0);const small=holder?.querySelector('small');if(small)small.textContent=count?`${count} file${count===1?'':'s'} selected`:'Optional • up to 3 files • 10 MB each';});
  };
  boot();
 })();
