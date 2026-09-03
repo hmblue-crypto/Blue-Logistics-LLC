@@ -1,3 +1,4 @@
+(()=>{if(!document.querySelector('script[src*="founder-portraits-v2.js"]')){const s=document.createElement('script');s.src='founder-portraits-v2.js?v=20260902-1';document.head.appendChild(s)}})();
 (()=>{
  const boot=()=>{
   const form=document.getElementById('quoteForm');
