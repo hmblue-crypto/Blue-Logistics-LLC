@@ -1,0 +1,32 @@
+/* Blue Logistics founder section — compact executive treatment */
+:root{--blue-founder:#0872df;--navy-founder:#071a2d;--ink-founder:#10243b;--muted-founder:#62758a;--line-founder:#dce7f2;--soft-founder:#f5f9fd}
+.founder-grid,.founder-home-grid{align-items:stretch!important;gap:28px!important}
+.founder,.founder-home{background:#fff!important;border:1px solid var(--line-founder)!important;border-radius:24px!important;box-shadow:0 18px 45px rgba(16,36,59,.10)!important;overflow:hidden!important;position:relative!important}
+.founder{display:grid!important;grid-template-columns:230px minmax(0,1fr)!important;min-height:330px!important}
+.founder>img{width:230px!important;height:100%!important;min-height:330px!important;max-height:390px!important;object-fit:cover!important;object-position:center 16%!important;border-radius:0!important;background:#dfe8f1!important;display:block!important;image-rendering:auto!important;filter:none!important;transform:none!important}
+.founder-body{padding:34px 34px 30px!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+.founder-body>span,.founder-home>div>span{font-size:12px!important;font-weight:900!important;letter-spacing:.13em!important;color:var(--blue-founder)!important;text-transform:uppercase!important}
+.founder-body h3,.founder-home h3{color:var(--ink-founder)!important;font-size:30px!important;line-height:1.08!important;margin:9px 0 15px!important;letter-spacing:-.025em!important}
+.founder-body p,.founder-home p{color:var(--muted-founder)!important;font-size:15px!important;line-height:1.72!important;margin:0 0 11px!important}
+.founder-body .linkedin-btn,.founder-home .linkedin-btn{align-self:flex-start!important;margin-top:12px!important;border-radius:10px!important;box-shadow:0 8px 20px rgba(8,114,223,.17)!important}
+.founder-home{display:grid!important;grid-template-columns:160px minmax(0,1fr)!important;min-height:235px!important;text-align:left!important}
+.founder-home>img{width:160px!important;height:100%!important;min-height:235px!important;max-height:270px!important;object-fit:cover!important;object-position:center 15%!important;border-radius:0!important;margin:0!important;background:#dfe8f1!important;image-rendering:auto!important;filter:none!important;transform:none!important}
+.founder-home>div{padding:26px 28px!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:flex-start!important}
+.founders-home .section-head,.section.soft .section-head{margin-bottom:34px!important}
+.founders-home .section-head h2,.section.soft .section-head h2{letter-spacing:-.035em!important}
+.founders-home .section-head h2:after,.section.soft .section-head h2:after{content:"";display:block;width:46px;height:4px;background:var(--blue-founder);border-radius:999px;margin:14px auto 0}
+@media(max-width:900px){
+ .founder,.founder-home{grid-template-columns:1fr!important}
+ .founder>img{width:100%!important;height:300px!important;min-height:0!important;max-height:300px!important;object-position:center 14%!important}
+ .founder-home>img{width:100%!important;height:245px!important;min-height:0!important;max-height:245px!important;object-position:center 14%!important}
+ .founder-body,.founder-home>div{padding:26px!important}
+ .founder-body h3,.founder-home h3{font-size:27px!important}
+}
+@media(max-width:560px){
+ .founder-grid,.founder-home-grid{gap:20px!important}
+ .founder,.founder-home{border-radius:18px!important}
+ .founder>img{height:250px!important;max-height:250px!important}
+ .founder-home>img{height:220px!important;max-height:220px!important}
+ .founder-body,.founder-home>div{padding:22px!important}
+ .founder-body p,.founder-home p{font-size:14px!important;line-height:1.65!important}
+}
