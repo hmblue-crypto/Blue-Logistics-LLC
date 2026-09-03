@@ -1,5 +1,13 @@
 /* Blue Logistics founder section — compact executive treatment */
 :root{--blue-founder:#0872df;--navy-founder:#071a2d;--ink-founder:#10243b;--muted-founder:#62758a;--line-founder:#dce7f2;--soft-founder:#f5f9fd}
+.about-trust-strip{background:#fff;border-top:1px solid #e5edf5;border-bottom:1px solid #e5edf5}
+.about-trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.about-trust-grid>div{display:flex;align-items:center;gap:12px;padding:18px 20px;border-right:1px solid #e5edf5}
+.about-trust-grid>div:last-child{border-right:0}
+.about-trust-grid b{width:38px;height:38px;border-radius:11px;background:#eaf4ff;color:var(--blue-founder);display:grid;place-items:center;font-size:13px;font-weight:900;flex:0 0 auto}
+.about-trust-grid span{display:flex;flex-direction:column;gap:2px}
+.about-trust-grid strong{color:var(--ink-founder);font-size:14px;line-height:1.2}
+.about-trust-grid small{color:var(--muted-founder);font-size:12px;line-height:1.25}
 .founder-grid,.founder-home-grid{align-items:stretch!important;gap:28px!important}
 .founder,.founder-home{background:#fff!important;border:1px solid var(--line-founder)!important;border-radius:24px!important;box-shadow:0 18px 45px rgba(16,36,59,.10)!important;overflow:hidden!important;position:relative!important}
 .founder{display:grid!important;grid-template-columns:230px minmax(0,1fr)!important;min-height:330px!important}
@@ -15,7 +23,11 @@
 .founders-home .section-head,.section.soft .section-head{margin-bottom:34px!important}
 .founders-home .section-head h2,.section.soft .section-head h2{letter-spacing:-.035em!important}
 .founders-home .section-head h2:after,.section.soft .section-head h2:after{content:"";display:block;width:46px;height:4px;background:var(--blue-founder);border-radius:999px;margin:14px auto 0}
+.section.soft .section-head>p{max-width:700px;margin:12px auto 0;color:var(--muted-founder)}
 @media(max-width:900px){
+ .about-trust-grid{grid-template-columns:repeat(2,1fr)}
+ .about-trust-grid>div:nth-child(2){border-right:0}
+ .about-trust-grid>div:nth-child(-n+2){border-bottom:1px solid #e5edf5}
  .founder,.founder-home{grid-template-columns:1fr!important}
  .founder>img{width:100%!important;height:300px!important;min-height:0!important;max-height:300px!important;object-position:center 14%!important}
  .founder-home>img{width:100%!important;height:245px!important;min-height:0!important;max-height:245px!important;object-position:center 14%!important}
@@ -23,6 +35,9 @@
  .founder-body h3,.founder-home h3{font-size:27px!important}
 }
 @media(max-width:560px){
+ .about-trust-grid{grid-template-columns:1fr}
+ .about-trust-grid>div{border-right:0!important;border-bottom:1px solid #e5edf5}
+ .about-trust-grid>div:last-child{border-bottom:0}
  .founder-grid,.founder-home-grid{gap:20px!important}
  .founder,.founder-home{border-radius:18px!important}
  .founder>img{height:250px!important;max-height:250px!important}
