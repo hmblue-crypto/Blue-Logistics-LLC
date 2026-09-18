@@ -4,41 +4,20 @@
   const safeRef=()=>{try{return document.referrer?new URL(document.referrer).hostname:'direct'}catch{return'direct'}};
   const source=params.get('utm_source')||sessionStorage.getItem('blue_source')||safeRef();
   try{sessionStorage.setItem('blue_source',source)}catch{}
-  const fire=(event,detail={})=>{
-    const payload={event,...detail,page_path:location.pathname,source};
-    window.dataLayer.push(payload);
-    try{const history=JSON.parse(localStorage.getItem('blue_conversion_events')||'[]');history.push({...payload,ts:new Date().toISOString()});localStorage.setItem('blue_conversion_events',JSON.stringify(history.slice(-100)))}catch{}
-    if(typeof window.gtag==='function')window.gtag('event',event,detail);
-  };
-  document.addEventListener('click',e=>{
-    const a=e.target.closest('a');if(!a)return;
-    const href=a.getAttribute('href')||'';
-    if(href.includes('contact.html#quote')||href==='#quoteForm')fire('quote_cta_click',{link_text:a.textContent.trim()});
-    else if(href.includes('portal.html'))fire('portal_click',{link_text:a.textContent.trim()});
-    else if(href.includes('carriers.html'))fire('carrier_page_click',{link_text:a.textContent.trim()});
-    else if(href.includes('resources.html')||href.includes('freight-tools.html'))fire('resource_page_click',{link_text:a.textContent.trim()});
-    else if(href.includes('g.page'))fire('google_review_click',{link_text:a.textContent.trim()});
-  });
+  const fire=(event,detail={})=>{const payload={event,...detail,page_path:location.pathname,source};window.dataLayer.push(payload);try{const history=JSON.parse(localStorage.getItem('blue_conversion_events')||'[]');history.push({...payload,ts:new Date().toISOString()});localStorage.setItem('blue_conversion_events',JSON.stringify(history.slice(-100)))}catch{};if(typeof window.gtag==='function')window.gtag('event',event,detail)};
+  document.addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;const href=a.getAttribute('href')||'';if(href.includes('contact.html#quote')||href==='#quoteForm')fire('quote_cta_click',{link_text:a.textContent.trim()});else if(href.includes('portal.html'))fire('portal_click',{link_text:a.textContent.trim()});else if(href.includes('carriers.html'))fire('carrier_page_click',{link_text:a.textContent.trim()});else if(href.includes('resources.html')||href.includes('freight-tools.html'))fire('resource_page_click',{link_text:a.textContent.trim()});else if(href.includes('g.page'))fire('google_review_click',{link_text:a.textContent.trim()})});
   fire('page_view_blue',{page_title:document.title});
-
   const f=document.getElementById('carrierInterestForm');
   if(f){
+    const readinessFields=['company','name','email','mc_number','usdot_number','equipment_types','service_regions','lanes'];
+    const updateReadiness=()=>{const complete=readinessFields.filter(n=>String(f.elements.namedItem(n)?.value||'').trim()).length;const pct=Math.round(complete/readinessFields.length*100);const bar=document.getElementById('carrierReadinessBar'),txt=document.getElementById('carrierReadinessText');if(bar)bar.style.width=pct+'%';if(txt)txt.textContent=pct>=100?'Core carrier profile complete — ready to submit for review.':pct>=63?'Good profile — authority, equipment and lane details make matching stronger.':pct>=25?'Keep going — add authority, equipment and lane preferences.':'Start with your company and contact information.'};
+    f.addEventListener('input',updateReadiness);f.addEventListener('change',updateReadiness);updateReadiness();
     f.addEventListener('submit',async e=>{
       e.preventDefault();if(!f.checkValidity()){f.reportValidity();return}
-      const d=Object.fromEntries(new FormData(f).entries());
-      const status=document.getElementById('carrierFormStatus');const btn=f.querySelector('button[type="submit"]');
-      if(status)status.textContent='Submitting securely to Blue Logistics…';if(btn){btn.disabled=true;btn.textContent='Submitting…'}
-      const payload={...d,source_detail:source,landing_page:location.href,referrer:document.referrer,utm_source:params.get('utm_source')||'',utm_medium:params.get('utm_medium')||'',utm_campaign:params.get('utm_campaign')||''};
-      try{
-        const r=await fetch('https://scrbdfwpthsylmhtqjeu.supabase.co/functions/v1/public-carrier-intake',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
-        const data=await r.json().catch(()=>({}));if(!r.ok||!data.ok)throw new Error(data.error||'Unable to submit carrier setup request.');
-        fire('carrier_setup_submit',{company:d.company||'',equipment:d.equipment||''});f.reset();
-        if(status)status.textContent=`✓ Carrier setup request received. Reference ${String(data.request_id).slice(0,8).toUpperCase()}. Blue Logistics will review the information before approval.`;
-        if(btn)btn.textContent='Setup Request Sent ✓';
-      }catch(err){
-        if(status)status.textContent=`We couldn't submit the carrier setup request. ${err.message||''} Please try again or email hmblue@bluelogisticsllc.us.`;
-        if(btn){btn.disabled=false;btn.textContent='Try Again →'}
-      }finally{if(btn&&btn.disabled&&btn.textContent.includes('Sent'))setTimeout(()=>{btn.disabled=false;btn.textContent='Start Carrier Setup →'},3500)}
-    });
+      const d=Object.fromEntries(new FormData(f).entries());const status=document.getElementById('carrierFormStatus'),btn=f.querySelector('button[type="submit"]');
+      if(!String(d.mc_number||'').trim()&&!String(d.usdot_number||'').trim()){if(status)status.textContent='Enter an MC Number or USDOT Number so Blue Logistics can independently verify authority.';f.elements.namedItem('mc_number')?.focus();return}
+      if(status)status.textContent='Submitting securely to Blue Logistics review…';if(btn){btn.disabled=true;btn.textContent='Submitting for Review…'}
+      const payload={...d,source_detail:source,landing_page:location.href,referrer:document.referrer,utm_source:params.get('utm_source')||'',utm_medium:params.get('utm_medium')||'',utm_campaign:params.get('utm_campaign')||'',requested_status:'Review'};
+      try{const r=await fetch('https://scrbdfwpthsylmhtqjeu.supabase.co/functions/v1/public-carrier-intake',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});const data=await r.json().catch(()=>({}));if(!r.ok||!data.ok)throw new Error(data.error||'Unable to submit carrier setup request.');fire('carrier_setup_submit',{company:d.company||'',equipment:d.equipment_types||'',requested_status:'Review'});f.reset();updateReadiness();if(status)status.textContent=`✓ Carrier profile received. Reference ${String(data.request_id).slice(0,8).toUpperCase()}. Status: Review. Authority and insurance still require Blue Logistics verification before approval.`;if(btn)btn.textContent='Profile Sent for Review ✓'}catch(err){if(status)status.textContent=`We couldn't submit the carrier setup request. ${err.message||''} Please try again or email hmblue@bluelogisticsllc.us.`;if(btn){btn.disabled=false;btn.textContent='Try Again →'}}finally{if(btn&&btn.disabled&&btn.textContent.includes('Sent'))setTimeout(()=>{btn.disabled=false;btn.textContent='Submit Carrier Profile for Review →'},3500)}});
   }
 })();
