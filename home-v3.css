@@ -14,3 +14,22 @@
 @media(max-width:900px){.utility-local{display:none}.local-service-grid{grid-template-columns:1fr}.local-service-actions{justify-content:flex-start}}
 @media(max-width:720px){.home-v3 .hero-v3{padding:42px 0 34px}.home-v3 .hero-v3 .hero-copy h1{font-size:44px}.home-v3 .hero-v3 .hero-copy>p{font-size:16px}.hero-call-row{display:grid;grid-template-columns:1fr}.hero-call-row .btn{width:100%}.local-service-banner{padding:42px 0}.local-service-actions{display:grid;grid-template-columns:1fr;width:100%}.local-service-actions .btn{width:100%}.local-points{display:grid}.ce-friendly .ce-urgent-actions{width:100%;display:grid}.ce-friendly .ce-urgent-actions .btn{width:100%}.cta-actions{width:100%;display:grid}.cta-actions .btn{width:100%}.home-v3 header{top:0}.home-v3 .ce-action-grid a{min-height:0}}
 @media(prefers-reduced-motion:reduce){.home-v3 *, .home-v3 *:before, .home-v3 *:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* V3.2 layout repair — cleaner desktop hero and readable navigation */
+.home-v3 header{background:#fff;color:#10243e;border-bottom:1px solid #dfe8f2}
+.home-v3 .nav{min-height:82px}
+.home-v3 .brand strong{color:#10243e}.home-v3 .brand small{color:#71849a}
+.home-v3 .navlinks{gap:16px}.home-v3 .navlinks a{color:#42566d}.home-v3 .navlinks a:hover,.home-v3 .navlinks a.active{color:#0872df}
+.home-v3 .navlinks .cta-nav{color:#fff;background:#0872df;padding:12px 17px}
+.home-v3 .menu{color:#10243e}
+.home-v3 .hero-v3{padding:64px 0 60px}
+.home-v3 .hero-v3:before{display:none}
+.home-v3 .hero-upgrade-grid{grid-template-columns:minmax(0,1.08fr) minmax(420px,.82fr);gap:64px;align-items:start}
+.home-v3 .hero-v3 .hero-copy{padding-top:30px}
+.home-v3 .hero-v3 .hero-copy h1{font-size:clamp(52px,5.3vw,76px);line-height:.96;max-width:700px}
+.home-v3 .hero-v3 .hero-copy>p{font-size:18px;line-height:1.62;max-width:650px}
+.home-v3 .hero-quote{padding:30px;border-radius:20px;box-shadow:0 24px 65px rgba(0,0,0,.24);max-width:520px;width:100%;justify-self:end}
+.home-v3 .hero-quote h2{font-size:30px;line-height:1.08}
+.home-v3 .hero-benefits{margin-top:24px}
+@media(max-width:1080px){.home-v3 .navlinks{gap:11px;font-size:12px}.home-v3 .brand strong{font-size:21px}.home-v3 .hero-upgrade-grid{gap:34px;grid-template-columns:minmax(0,1fr) minmax(390px,.9fr)}}
+@media(max-width:900px){.home-v3 .hero-upgrade-grid{grid-template-columns:1fr}.home-v3 .hero-quote{justify-self:stretch;max-width:none}.home-v3 .hero-v3 .hero-copy{padding-top:0}}
