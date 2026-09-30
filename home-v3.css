@@ -33,3 +33,28 @@
 .home-v3 .hero-benefits{margin-top:24px}
 @media(max-width:1080px){.home-v3 .navlinks{gap:11px;font-size:12px}.home-v3 .brand strong{font-size:21px}.home-v3 .hero-upgrade-grid{gap:34px;grid-template-columns:minmax(0,1fr) minmax(390px,.9fr)}}
 @media(max-width:900px){.home-v3 .hero-upgrade-grid{grid-template-columns:1fr}.home-v3 .hero-quote{justify-self:stretch;max-width:none}.home-v3 .hero-v3 .hero-copy{padding-top:0}}
+
+/* V3.3 homepage reset — 2026-09-30 */
+.home-v3 .hero-v3{padding:76px 0 70px;background:linear-gradient(118deg,#061629 0%,#0a2948 60%,#0d477b 100%)}
+.home-v3 .hero-upgrade-grid{align-items:center;grid-template-columns:minmax(0,1.12fr) minmax(390px,.78fr);gap:72px}
+.home-v3 .hero-v3 .hero-copy{padding-top:0}
+.home-v3 .hero-v3 .hero-copy h1{font-size:clamp(48px,5.2vw,72px);line-height:1.01;letter-spacing:-.045em;max-width:760px;margin:14px 0 22px}
+.home-v3 .hero-v3 .hero-copy h1 span{color:#72bfff}
+.home-v3 .hero-v3 .hero-copy>p{max-width:680px;font-size:18px;line-height:1.65;color:#d5e4f2}
+.home-v3 .hero-rule{display:none}
+.home-v3 .eyebrow{display:inline-flex;padding:7px 10px;border:1px solid rgba(126,194,255,.25);border-radius:999px;background:rgba(8,114,223,.12);font-size:10px!important}
+.home-v3 .hero-call-row{margin-top:28px}
+.home-v3 .hero-call-row .btn{min-height:50px;display:inline-flex;align-items:center;justify-content:center;padding:0 19px;border-radius:10px;font-weight:850}
+.home-v3 .hero-human-note{margin-top:13px!important}
+.home-v3 .hero-benefits>div{background:transparent;border:0;border-top:1px solid rgba(255,255,255,.16);border-radius:0;padding:14px 0}
+.home-v3 .hero-benefits b{font-size:15px}
+.home-v3 .hero-quote{max-width:480px;padding:28px;border:0;border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.28)}
+.home-v3 .hero-quote h2{font-size:27px;margin-top:7px}
+.home-v3 .trust-band-v2{border-bottom:1px solid #dfe8f2}
+.home-v3 .trust-item{padding:18px 20px}
+.home-v3 .ce-action-rail{padding:28px 0 34px}
+.home-v3 .ce-action-grid{grid-template-columns:1.35fr 1fr 1fr 1fr}
+.home-v3 .ce-action-grid a{box-shadow:none;border-color:#d9e4ee}
+.home-v3 .freight-choice-section{padding:62px 0}
+@media(max-width:1000px){.home-v3 .hero-upgrade-grid{grid-template-columns:1fr;gap:36px}.home-v3 .hero-quote{justify-self:stretch;max-width:620px}.home-v3 .ce-action-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){.home-v3 .hero-v3{padding:36px 0 30px}.home-v3 .hero-v3 .hero-copy h1{font-size:39px;line-height:1.02}.home-v3 .hero-benefits{grid-template-columns:repeat(3,1fr);gap:10px}.home-v3 .hero-benefits>div{display:block}.home-v3 .hero-benefits small{font-size:10px}.home-v3 .ce-action-grid{grid-template-columns:1fr}.home-v3 .trust-item{padding:14px 10px}}
