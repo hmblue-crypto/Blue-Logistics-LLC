@@ -1,6 +1,6 @@
 (()=>{
   const WRONG='hmblue@shipbluelogistics.com';
-  const RIGHT='hmblue@bluelogisticsllc.us';
+  const RIGHT='hmblue@shipbluelogistics.com';
   const email=document.getElementById('email');
   const form=document.getElementById('loginForm');
   const resend=document.getElementById('resendLink');

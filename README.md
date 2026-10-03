@@ -26,7 +26,7 @@ About / Founders
 Contact / Quote
 
 Quote form sends to:
-hmblue@bluelogisticsllc.us
+hmblue@shipbluelogistics.com
 
 Social links included:
 Google Reviews

@@ -129,6 +129,6 @@ Deno.serve(async (req: Request) => {
     return new Response(JSON.stringify({ ok: true, request_id: data.id, readiness_score: data.readiness_score, urgency: data.urgency, push_sent: push.sent, attachment_count: files.length, sms_status: smsStatus, source_detail: sourceDetail }), { status: 200, headers: cors(origin) });
   } catch (e) {
     console.error("public quote intake failed", e);
-    return new Response(JSON.stringify({ error: "We couldn't submit your quote request. Please try again or email hmblue@bluelogisticsllc.us." }), { status: 500, headers: cors(origin) });
+    return new Response(JSON.stringify({ error: "We couldn't submit your quote request. Please try again or email hmblue@shipbluelogistics.com." }), { status: 500, headers: cors(origin) });
   }
 });
