@@ -39,7 +39,7 @@ if(form){
  const saveDraft=()=>{const d={};names.forEach(n=>{const el=form.elements.namedItem(n);if(el&&String(el.value||'').trim())d[n]=String(el.value).trim()});try{if(Object.keys(d).length)localStorage.setItem(draftKey,JSON.stringify(d));else localStorage.removeItem(draftKey)}catch{}};
  const update=()=>{const core=['pickup_location','delivery_location','service','pickup_date'];const count=core.filter(n=>String(form.elements.namedItem(n)?.value||'').trim()).length;bar.style.width=`${count/4*100}%`;label.textContent=`${count} of 4 basics`;if(count===4)label.textContent='Ready for contact details'};
  const draft=getDraft();if(draft&&Object.keys(draft).length)resume.classList.add('show');
- tools.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.classList.contains('resume')){const d=getDraft();if(d){Object.entries(d).forEach(([n,v])=>{const el=form.elements.namedItem(n);if(el)el.value=v});update();resume.classList.remove('show');form.scrollIntoView({behavior:'smooth',block:'center'});fire('quote_draft_resumed')}else if(b.classList.contains('clear')){try{localStorage.removeItem(draftKey)}catch{}resume.classList.remove('show');fire('quote_draft_cleared')}});
+ tools.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.classList.contains('resume')){const d=getDraft();if(d){Object.entries(d).forEach(([n,v])=>{const el=form.elements.namedItem(n);if(el)el.value=v});update();resume.classList.remove('show');form.scrollIntoView({behavior:'smooth',block:'center'});fire('quote_draft_resumed')}}else if(b.classList.contains('clear')){try{localStorage.removeItem(draftKey)}catch{}resume.classList.remove('show');fire('quote_draft_cleared')}});
  form.addEventListener('input',()=>{saveDraft();update()});form.addEventListener('change',()=>{saveDraft();update()});form.addEventListener('submit',()=>{setTimeout(()=>{const txt=($('#quoteStatus',form)?.textContent||'').toLowerCase();if(txt.includes('received')||txt.includes('sent')||txt.includes('success')){try{localStorage.removeItem(draftKey)}catch{}}},1400)});update();
 }
 $$('.google-review-card .google-stars').forEach(el=>{el.className='review-highlight-label';el.textContent='PUBLIC GOOGLE REVIEW'});
@@ -52,3 +52,4 @@ mobile.innerHTML='<a href="#quoteForm" data-ce="mobile_quote"><b>$</b>QUOTE</a><
 $$('a[href="tel:+19196018019"]').forEach(a=>a.href=PHONE_TEL);
 document.addEventListener('click',e=>{const a=e.target.closest('[data-ce]');if(a)fire('conversion_action_click',{action:a.dataset.ce||'',link_text:a.textContent.trim().slice(0,80)})});
 })();
+

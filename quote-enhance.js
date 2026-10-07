@@ -1,10 +1,9 @@
-(()=>{if(!document.querySelector('script[src*="founder-portraits-v2.js"]')){const s=document.createElement('script');s.src='founder-portraits-v2.js?v=20260902-1';document.head.appendChild(s)}})();
 (()=>{
  const boot=()=>{
   const form=document.getElementById('quoteForm');
   if(!form||!form.dataset.wizardReady){setTimeout(boot,120);return}
   if(form.dataset.customerEnhanceReady)return;form.dataset.customerEnhanceReady='true';
-  if(!document.querySelector('link[href*="quote-enhance.css"]')){const l=document.createElement('link');l.rel='stylesheet';l.href='quote-enhance.css?v=20260901-1';document.head.appendChild(l)}
+  if(!document.querySelector('link[href*="quote-enhance.css"]')){const l=document.createElement('link');l.rel='stylesheet';l.href='quote-enhance.css?v=20261007-1';document.head.appendChild(l)}
   const step2=form.querySelector('.quote-wizard-step[data-step="2"]'),step3=form.querySelector('.quote-wizard-step[data-step="3"]');
   if(!step2||!step3)return;
 

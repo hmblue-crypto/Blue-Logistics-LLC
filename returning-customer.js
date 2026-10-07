@@ -10,7 +10,25 @@
   const status=document.getElementById('quoteStatus');if(status){new MutationObserver(()=>{if(/quote request received/i.test(status.textContent||'')){try{const p=localStorage.getItem(pendingKey);if(p)localStorage.setItem(lastKey,p);localStorage.removeItem(pendingKey)}catch{};refreshRepeat()}}).observe(status,{childList:true,subtree:true,characterData:true})}
  }
  let repeatCard=null;
- function refreshRepeat(){const saved=safeParse(localStorage.getItem(lastKey)||'');if(!form||!saved||!saved.pickup_location||!saved.delivery_location){repeatCard?.remove();return}if(!repeatCard){repeatCard=document.createElement('div');repeatCard.className='repeat-lane-card';const parent=form.parentElement;parent?.insertBefore(repeatCard,form)}repeatCard.innerHTML=`<div><span>RETURNING CUSTOMER</span><strong>Ship this lane again?</strong><small>${escapeHtml(saved.pickup_location)} → ${escapeHtml(saved.delivery_location)}${saved.service?` • ${escapeHtml(saved.service)}`:''}</small></div><button type="button">Use Last Shipment →</button>`;repeatCard.querySelector('button')?.addEventListener('click',()=>fillForm(saved))}
+ function refreshRepeat(){
+  let saved=null;
+  try{saved=safeParse(localStorage.getItem(lastKey)||'')}catch{}
+  if(!form||!saved||typeof saved!=='object'||Array.isArray(saved)){repeatCard?.remove();repeatCard=null;return}
+  const origin=typeof saved.pickup_location==='string'?saved.pickup_location.trim():'';
+  const destination=typeof saved.delivery_location==='string'?saved.delivery_location.trim():'';
+  const complete=origin.length>=3&&destination.length>=3;
+  if(!complete){repeatCard?.remove();repeatCard=null;return}
+  // Summary eligibility only: this never deletes or changes the browser's saved shipment.
+  // City-only and other freeform entries can still be reviewed without advertising an unverified route.
+  const locationSummary=value=>/^\d{5}(?:-\d{4})?$/.test(value)||/^[\p{L}\p{M} .'-]+,?\s+[A-Z]{2}(?:\s+\d{5}(?:-\d{4})?)?$/u.test(value)||/^[A-Z]\d[A-Z][ -]?\d[A-Z]\d$/i.test(value);
+  const summary=complete&&locationSummary(origin)&&locationSummary(destination);
+  if(!repeatCard){repeatCard=document.createElement('div');repeatCard.className='repeat-lane-card';form.parentElement?.insertBefore(repeatCard,form)}
+  const title=summary?'Ship this lane again?':complete?'Review your saved shipment':'Have a shipment to quote?';
+  const detail=summary?`${escapeHtml(origin)} → ${escapeHtml(destination)}${typeof saved.service==='string'&&saved.service?` • ${escapeHtml(saved.service)}`:''}`:complete?'Check your saved details and add a new pickup date.':'Start with your pickup and delivery locations.';
+  const action=summary?'Use Last Shipment →':complete?'Review Saved Details →':'Start a Quote →';
+  repeatCard.innerHTML=`<div><span>${complete?'RETURNING CUSTOMER':'FREIGHT QUOTE'}</span><strong>${title}</strong><small>${detail}</small></div><button type="button">${action}</button>`;
+  repeatCard.querySelector('button')?.addEventListener('click',()=>{if(complete)fillForm(saved);else{form.scrollIntoView({behavior:'smooth',block:'start'});form.querySelector('[name="pickup_location"]')?.focus({preventScroll:true})}});
+ }
  function escapeHtml(s){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
  refreshRepeat();
 
