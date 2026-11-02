@@ -40,7 +40,16 @@ if(form){
  const update=()=>{const core=['pickup_location','delivery_location','service','pickup_date'];const count=core.filter(n=>String(form.elements.namedItem(n)?.value||'').trim()).length;bar.style.width=`${count/4*100}%`;label.textContent=`${count} of 4 basics`;if(count===4)label.textContent='Ready for contact details'};
  const draft=getDraft();if(draft&&Object.keys(draft).length)resume.classList.add('show');
  tools.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.classList.contains('resume')){const d=getDraft();if(d){Object.entries(d).forEach(([n,v])=>{const el=form.elements.namedItem(n);if(el)el.value=v});update();resume.classList.remove('show');form.scrollIntoView({behavior:'smooth',block:'center'});fire('quote_draft_resumed')}}else if(b.classList.contains('clear')){try{localStorage.removeItem(draftKey)}catch{}resume.classList.remove('show');fire('quote_draft_cleared')}});
- form.addEventListener('input',()=>{saveDraft();update()});form.addEventListener('change',()=>{saveDraft();update()});form.addEventListener('submit',()=>{setTimeout(()=>{const txt=($('#quoteStatus',form)?.textContent||'').toLowerCase();if(txt.includes('received')||txt.includes('sent')||txt.includes('success')){try{localStorage.removeItem(draftKey)}catch{}}},1400)});update();
+ form.addEventListener('input',()=>{saveDraft();update()});form.addEventListener('change',()=>{saveDraft();update()});// Quote submission is asynchronous. Clear the saved draft only when the server confirms receipt.
+ const clearConfirmedDraft=()=>{
+  const message=(status?.textContent||'').trim();
+  if(!message.startsWith('✓ Quote request received.'))return;
+  try{localStorage.removeItem(draftKey)}catch{}
+  resume.classList.remove('show');
+ };
+ if(status)new MutationObserver(clearConfirmedDraft).observe(status,{childList:true,subtree:true,characterData:true});
+ form.addEventListener('reset',()=>setTimeout(update,0));
+ update();
 }
 $$('.google-review-card .google-stars').forEach(el=>{el.className='review-highlight-label';el.textContent='PUBLIC GOOGLE REVIEW'});
 $$('.section-head>span').forEach(el=>{if(el.textContent.trim()==='PHASE 3 TOOLS')el.textContent='SHIPPER TOOLS'});$$('.section-head>p').forEach(el=>{if(el.textContent.includes('New customer, industry and carrier paths'))el.textContent='Practical resources, industry guidance and carrier access in one place.'});
