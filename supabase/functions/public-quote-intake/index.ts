@@ -72,7 +72,8 @@ async function sendOwnerPush(admin: any, quote: any) {
 
 
 function emailEscape(value: unknown) {
-  return String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c] ?? c));
+  const entities: Record<string,string> = {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"};
+  return String(value ?? "").replace(/[&<>"']/g, c => entities[c] ?? c);
 }
 function alertHtml(quote: any){
   const fields: [string,unknown][] = [
@@ -93,6 +94,9 @@ async function queueAndNotifyOwner(admin:any, quote:any){
   const outbox=admin.from("quote_owner_email_notifications");
   const {error:queueError}=await outbox.upsert({quote_request_id:quote.id,status:"pending"},{onConflict:"quote_request_id",ignoreDuplicates:true});
   if(queueError){console.error("Quote alert could not be queued",queueError.message);return {status:"queue_failed"}}
+  const {data:current,error:readError}=await outbox.select("status").eq("quote_request_id",quote.id).single();
+  if(readError)return {status:"queue_unavailable"};
+  if(current.status==="accepted"||current.status==="delivered")return {status:current.status};
   const key=Deno.env.get("RESEND_API_KEY");
   if(!key)return {status:"pending_configuration"};
   // One deterministic provider idempotency key per quote; future retries reuse it.
