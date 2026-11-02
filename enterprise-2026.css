@@ -1,0 +1,60 @@
+/* Blue Logistics Enterprise 2026 — original visual system inspired by leading 3PL UX patterns */
+:root{--enterprise-navy:#071d35;--enterprise-blue:#0674e8;--enterprise-ink:#092844}
+body.home-v3{background:#fff;color:var(--enterprise-ink)}
+.home-v3 .utility{background:#04182b;border-bottom:1px solid #1e3951}
+.home-v3 header{background:#fff;color:#092844;border-bottom:1px solid #dce6ef;box-shadow:0 8px 30px rgba(5,31,53,.07)}
+.home-v3 header .brand strong{color:#092844}
+.home-v3 header .brand small{color:#486680}
+.home-v3 header .navlinks a:not(.cta-nav){color:#143651}
+.home-v3 header .navlinks a:hover,.home-v3 header .navlinks a.active{color:#0674e8}
+.home-v3 header .navlinks .cta-nav{background:#0674e8;color:#fff!important;border-radius:5px;padding:13px 19px}
+.home-v3 .nav{min-height:88px}
+.home-v3 .hero-v3{background:linear-gradient(106deg,rgba(1,22,43,.97) 0%,rgba(4,36,68,.95) 52%,rgba(7,56,97,.9) 100%),linear-gradient(45deg,#071c32,#0a5289);min-height:700px;padding:64px 0;overflow:hidden}
+.home-v3 .hero-v3:after{content:"";pointer-events:none;position:absolute;inset:0;background:repeating-linear-gradient(140deg,transparent 0 90px,rgba(255,255,255,.028) 90px 92px);opacity:.7}
+.home-v3 .hero-v3 .hero-upgrade-grid{position:relative;z-index:2}
+.home-v3 .hero-v3 .eyebrow{color:#74c9ff;letter-spacing:.16em}
+.home-v3 .hero-v3 h1{font-size:clamp(46px,5.5vw,78px);line-height:1.02;max-width:790px;letter-spacing:-.055em;color:#fff}
+.home-v3 .hero-v3 h1 span{display:block;color:#62bcff}
+.home-v3 .hero-v3 .hero-copy>p{color:#d8e9f7}
+.home-v3 .hero-v3 .hero-quote{border:1px solid #c9e2f6;border-top:5px solid #087ff5;box-shadow:0 28px 60px rgba(0,10,25,.25);border-radius:16px;background:#fff}
+.home-v3 .hero-v3 .hero-quote h2{color:#0b2a46}
+.home-v3 .hero-v3 .hero-call-row .btn{border-radius:5px}
+.home-v3 .trust-band-v2{position:relative;z-index:3;background:#fff}
+.home-v3 .trust-grid-v2{padding:14px 0}
+.home-v3 .trust-item .trust-icon{border-radius:9px;background:#e7f3ff;color:#056cda}
+.home-v3 .clean-section{padding:90px 0}
+.home-v3 .section-head{max-width:800px}
+.home-v3 .section-head h2{font-size:clamp(34px,4vw,52px);line-height:1.12;letter-spacing:-.045em}
+.home-v3 .section-head>span{color:#0674e8}
+.home-v3 .clean-services{gap:18px}
+.home-v3 .clean-service{border-radius:10px;border:1px solid #d8e5ef;background:#fff;box-shadow:0 10px 32px rgba(4,42,77,.05);transition:transform .2s,border-color .2s,box-shadow .2s}
+.home-v3 .clean-service:hover{transform:translateY(-5px);border-color:#117feb;box-shadow:0 18px 36px rgba(4,42,77,.12)}
+.home-v3 .clean-service h3{color:#092844}
+.home-v3 .clean-service>b{color:#0674e8}
+.home-v3 .clean-section.soft{background:#f0f6fb}
+.home-v3 .proof-action-grid>a,.home-v3 .tool-card{border-radius:10px}
+.home-v3 .customer-faq{background:#fff}
+.home-v3 .cta-strip-v2{background:linear-gradient(110deg,#05233f,#07548f)}
+.home-v3 .ce-mobile-bar a:first-child{background:#0674e8}
+.home-v3 .enterprise-intro{padding:83px 0;background:#fff}
+.home-v3 .enterprise-intro-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+.home-v3 .enterprise-kicker{font-size:12px;font-weight:900;letter-spacing:.16em;color:#0778eb}
+.home-v3 .enterprise-intro h2{font-size:clamp(34px,4vw,51px);line-height:1.08;letter-spacing:-.045em;margin:14px 0 0}
+.home-v3 .enterprise-intro-copy p{font-size:18px;line-height:1.8;color:#49647e;margin:0 0 24px}
+.home-v3 .enterprise-features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.home-v3 .enterprise-feature{border-top:4px solid #087ff5;background:#f0f6fb;padding:22px 19px;min-height:170px}
+.home-v3 .enterprise-feature strong{display:block;font-size:18px;margin-bottom:10px}
+.home-v3 .enterprise-feature small{font-size:13px;line-height:1.65;color:#4a667f}
+.home-v3 .enterprise-audience{background:#062440;padding:80px 0;color:#fff}
+.home-v3 .enterprise-audience h2{font-size:clamp(32px,3.6vw,48px);margin:10px 0 16px}
+.home-v3 .enterprise-audience p{color:#c5daeb;line-height:1.75;max-width:700px}
+.home-v3 .enterprise-audience-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:32px}
+.home-v3 .enterprise-audience-grid a{padding:32px;border:1px solid #346181;background:#0c3455;border-radius:9px;transition:background .2s}
+.home-v3 .enterprise-audience-grid a:hover{background:#12466e}
+.home-v3 .enterprise-audience-grid strong{display:block;font-size:25px;margin-bottom:12px;color:#fff}
+.home-v3 .enterprise-audience-grid small{display:block;color:#c6dcf0;font-size:14px;line-height:1.6}
+.home-v3 .enterprise-audience-grid b{display:block;color:#73c5ff;margin-top:20px;font-size:14px}
+.home-v3 a:focus-visible{outline:3px solid #50adff;outline-offset:4px}
+@media(max-width:1080px){.home-v3 header .menu{color:#092844}.home-v3 header .navlinks{background:#fff}.home-v3 .enterprise-intro-grid{grid-template-columns:1fr;gap:22px}}
+@media(max-width:760px){.home-v3 .hero-v3{min-height:0;padding:60px 0}.home-v3 .hero-v3 h1{font-size:clamp(42px,10vw,60px)}.home-v3 .enterprise-features{grid-template-columns:1fr}.home-v3 .enterprise-feature{min-height:0}.home-v3 .enterprise-audience-grid{grid-template-columns:1fr}.home-v3 .enterprise-intro,.home-v3 .enterprise-audience{padding:60px 0}.home-v3 .clean-section{padding:64px 0}}
+@media(prefers-reduced-motion:reduce){.home-v3 .clean-service,.home-v3 .enterprise-audience-grid a{transition:none}}
