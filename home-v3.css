@@ -159,8 +159,12 @@
 @media(max-width:850px){
  .home-v3{--home-space:56px}
  .home-v3 .hero-upgrade-grid{grid-template-columns:1fr;gap:40px}
+ .home-v3 .hero-v3{padding:38px 0 46px}
+ .home-v3 .hero-brand-mark{width:100px;margin:0 auto 12px}
+ .home-v3 .hero-call-row{margin-top:22px}
+ .home-v3 .hero-benefits{margin-top:22px;padding-top:18px}
  .home-v3 .hero-copy{padding-top:0}
- .home-v3 .hero-v3 .hero-copy h1{max-width:680px;font-size:48px}
+ .home-v3 .hero-v3 .hero-copy h1{max-width:680px;font-size:clamp(34px,4.7vw,42px);line-height:1.12;margin:16px 0 18px}
  .home-v3 .hero-call-row{display:flex}
  .home-v3 .hero-benefits{grid-template-columns:repeat(3,minmax(0,1fr))}
  .home-v3 .hero-benefits strong,.home-v3 .hero-benefits small{display:block;margin-left:0}
@@ -179,8 +183,9 @@
  .home-v3 .brand{gap:8px}
  .home-v3 .brand strong{font-size:18px}
  .home-v3 .brand small{font-size:8px;letter-spacing:.09em}
- .home-v3 .hero-v3{padding:40px 0}
- .home-v3 .hero-v3 .hero-copy h1{font-size:34px;line-height:1.1;letter-spacing:-.04em;margin:20px 0}
+ .home-v3 .hero-v3{padding:30px 0 38px}
+ .home-v3 .hero-brand-mark{width:88px;margin-bottom:8px}
+ .home-v3 .hero-v3 .hero-copy h1{font-size:34px;line-height:1.12;letter-spacing:-.04em;margin:12px 0 16px}
  .home-v3 .hero-copy .eyebrow{font-size:9px;letter-spacing:.06em;padding:8px 10px}
  .home-v3 .hero-copy>p{font-size:16px;line-height:1.7}
  .home-v3 .hero-call-row{display:grid;grid-template-columns:1fr;gap:12px;margin-top:24px}
