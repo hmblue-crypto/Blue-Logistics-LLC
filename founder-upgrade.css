@@ -31,3 +31,5 @@
 .about-fact .about-town-link:focus-visible{outline:2px solid #0872df;outline-offset:4px;border-radius:2px}
 .about-fact>b.about-flag{font-size:24px;line-height:1;background:#eaf4ff}
 @media (prefers-reduced-motion:reduce){.about-fact .about-town-link{transition:none}}
+
+.about-fact>b.about-flag-icon{width:42px;height:42px;flex:0 0 42px;padding:0;display:grid;place-items:center;background:#eaf4ff;border-radius:12px;overflow:hidden}.about-fact .about-flag-icon svg{width:34px;height:34px;display:block}
