@@ -15,7 +15,7 @@ const server=http.createServer((req,res)=>{
   res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream'});
   res.end(fs.readFileSync(file));
 });
-const sizes=[390,768,1120,1440];
+const sizes=[390,768,1040,1120,1440];
 const requiredLinks=['freight-tools.html','freight-quote-checklist.html','bol-checklist.html','#guide-equipment','#guide-ltl','#guide-accessorial','#guide-import'];
 (async()=>{
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
