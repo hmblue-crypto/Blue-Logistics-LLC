@@ -1,0 +1,68 @@
+/* Blue Logistics approved Resources visual refresh, 2026-11-11.
+   Scoped to Resources only: no homepage, carrier forms or portal changes. */
+body.interior-reference.interior-resources{--resource-navy:#071e3a;--resource-blue:#086fe8;--resource-ink:#102f50;--resource-muted:#4c647c;background:#f8fbff}
+body.interior-reference.interior-resources .phase3-hero.resources-hero{min-height:225px;display:flex;align-items:center;padding:32px 0 34px;background-color:#041d38;background-image:linear-gradient(98deg,rgba(2,19,42,.97) 0%,rgba(3,27,55,.89) 45%,rgba(3,29,58,.49) 77%,rgba(3,29,58,.28) 100%),url("https://images.pexels.com/photos/27508769/pexels-photo-27508769.jpeg?auto=compress&cs=tinysrgb&w=1800");background-position:center 48%;background-size:cover}
+body.interior-reference.interior-resources .resources-hero-inner{position:relative;z-index:1}
+body.interior-reference.interior-resources .resources-hero .eyebrow{color:#59c5ff;letter-spacing:.19em;font-size:11px;font-weight:900}
+body.interior-reference.interior-resources .resources-hero h1{color:#fff;font-size:clamp(34px,3.9vw,53px);letter-spacing:-.05em;line-height:1.06;margin:10px 0 8px;max-width:770px}
+body.interior-reference.interior-resources .resources-hero p{font-size:clamp(14px,1.3vw,17px);color:#e5f3ff;line-height:1.55;max-width:750px;margin:0}
+body.interior-reference.interior-resources .resources-hero-actions{display:flex;align-items:center;gap:10px;margin-top:20px;flex-wrap:wrap}
+body.interior-reference.interior-resources .resources-hero-actions .btn{font-size:13px;min-height:43px;padding:10px 17px}
+body.interior-reference.interior-resources .resources-hero-actions .btn.outline{border:1px solid #9acbec;background:rgba(0,17,37,.4);color:#fff}
+body.interior-reference.interior-resources main .resources-library.section{background:linear-gradient(180deg,#f4f8fd,#fff);padding:39px 0 54px;scroll-margin-top:95px}
+body.interior-reference.interior-resources .resources-library .section-head{max-width:900px;margin-bottom:25px}
+body.interior-reference.interior-resources .resources-library .section-head h2{font-size:clamp(27px,2.65vw,36px);margin:7px 0 8px;line-height:1.14;color:#092a49}
+body.interior-reference.interior-resources .resources-library .section-head p{font-size:14px;color:#5a728a;line-height:1.58}
+body.interior-reference.interior-resources .resource-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+body.interior-reference.interior-resources .resource-grid .resource-card{display:flex;flex-direction:column;min-width:0;position:relative;overflow:hidden;border-radius:17px;padding:0;background:#fff;border:1px solid #d3e4f2;box-shadow:0 8px 20px rgba(15,48,81,.065);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;color:#0b2b4a;text-decoration:none}
+body.interior-reference.interior-resources .resource-grid .resource-card::before{content:none!important;display:none!important}
+body.interior-reference.interior-resources .resource-grid .resource-card:hover,body.interior-reference.interior-resources .resource-grid .resource-card:focus-visible{transform:translateY(-4px);border-color:#84bfea;box-shadow:0 18px 34px rgba(11,49,89,.14)}
+body.interior-reference.interior-resources .resources-card-photo{position:relative;aspect-ratio:16/8.6;background:linear-gradient(145deg,#092d51,#145988);overflow:hidden;flex:none}
+body.interior-reference.interior-resources .resources-card-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform .3s ease}
+body.interior-reference.interior-resources .resources-card:hover .resources-card-photo img{transform:scale(1.045)}
+body.interior-reference.interior-resources .resources-card-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,24,48,.13),transparent 55%);pointer-events:none}
+body.interior-reference.interior-resources .resources-card-body{padding:20px 23px 21px;display:flex;flex-direction:column;flex:1;min-width:0}
+body.interior-reference.interior-resources .resources-card-category{display:inline-block;color:#0874df;text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:900;line-height:1.35;margin-bottom:8px}
+body.interior-reference.interior-resources .resource-card .resources-card-body>strong{font-size:clamp(18px,1.53vw,22px);line-height:1.18;letter-spacing:-.028em;color:#0c2d4f;margin:0 0 9px;font-weight:850}
+body.interior-reference.interior-resources .resources-card-body>strong span{color:#0876ea;white-space:nowrap;font-size:.87em}
+body.interior-reference.interior-resources .resources-card-body>p{font-size:13px;color:#546d84;line-height:1.6;margin:0 0 14px;flex:1}
+body.interior-reference.interior-resources .resources-card-action{font-size:12px;font-weight:850;color:#0875e1;margin-top:auto}
+body.interior-reference.interior-resources .resources-card-wide{grid-column:1 / -1;display:grid!important;grid-template-columns:minmax(0, .98fr) minmax(0,1.52fr);min-height:200px}
+body.interior-reference.interior-resources .resources-card-wide .resources-card-photo{height:100%;min-height:200px;aspect-ratio:auto}
+body.interior-reference.interior-resources .resources-card-wide .resources-card-body{justify-content:center;padding:25px 32px}
+body.interior-reference.interior-resources .resources-card-wide .resources-card-body>p{flex:0 1 auto;max-width:70ch}
+body.interior-reference.interior-resources .resources-guides{background:#f5f9fd;padding:58px 0;border-top:1px solid #e1ebf4}
+body.interior-reference.interior-resources .resources-guides .section-head{max-width:800px;margin:0 auto 28px}
+body.interior-reference.interior-resources .resources-guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+body.interior-reference.interior-resources .resources-guide{min-width:0;padding:26px;background:#fff;border:1px solid #d6e5f1;border-radius:16px;box-shadow:0 8px 24px rgba(10,42,77,.05);scroll-margin-top:110px}
+body.interior-reference.interior-resources .resources-guide:target{border-color:#0879ea;box-shadow:0 0 0 3px rgba(8,121,234,.12),0 8px 24px rgba(10,42,77,.06)}
+body.interior-reference.interior-resources .resources-guide-label{display:block;font-size:10px;letter-spacing:.14em;font-weight:900;color:#0878e6}
+body.interior-reference.interior-resources .resources-guide h3{color:#0e304e;font-size:22px;line-height:1.22;letter-spacing:-.025em;margin:10px 0}
+body.interior-reference.interior-resources .resources-guide p{color:#506a82;font-size:13px;line-height:1.72;margin:8px 0}
+body.interior-reference.interior-resources .resources-guide a{display:inline-block;margin-top:13px;font-size:13px;color:#0872dd;font-weight:850;text-decoration:underline;text-underline-offset:3px}
+body.interior-reference.interior-resources .resources-guides .section-head h2{font-size:clamp(29px,3.3vw,41px)}
+body.interior-reference.interior-resources .resources-guides .section-head p{font-size:15px;line-height:1.6}
+body.interior-reference.interior-resources .phase3-dark{background:linear-gradient(110deg,#061a33,#103b5e)}
+body.interior-reference.interior-resources .cta-strip{background:linear-gradient(110deg,#03172f,#0b467e)}
+@media(max-width:1020px){
+ body.interior-reference.interior-resources .resource-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+ body.interior-reference.interior-resources .resources-card-wide{grid-column:1 / -1}
+ body.interior-reference.interior-resources .resources-card-body{padding:19px 20px}
+}
+@media(max-width:700px){
+ body.interior-reference.interior-resources .resources-hero{background-position:61% center}
+ body.interior-reference.interior-resources .resources-hero-actions{gap:9px}
+ body.interior-reference.interior-resources .resource-grid{grid-template-columns:1fr;gap:16px}
+ body.interior-reference.interior-resources .resources-card-wide{grid-column:auto;display:flex!important}
+ body.interior-reference.interior-resources .resources-card-wide .resources-card-photo{aspect-ratio:16/8.6;height:auto;min-height:0}
+ body.interior-reference.interior-resources .resources-card-wide .resources-card-body{padding:20px}
+ body.interior-reference.interior-resources .resources-guide-grid{grid-template-columns:1fr}
+ body.interior-reference.interior-resources .resources-library .section-head h2{font-size:29px}
+ body.interior-reference.interior-resources .resources-guides{padding:40px 0}
+}
+@media(max-width:520px){
+ body.interior-reference.interior-resources .resources-hero-actions .btn{width:100%}
+ body.interior-reference.interior-resources .resources-hero-inner{padding:0}
+ body.interior-reference.interior-resources .resources-card-body{padding:18px 18px 20px}
+}
+@media(prefers-reduced-motion:reduce){body.interior-reference.interior-resources .resource-grid .resource-card,body.interior-reference.interior-resources .resources-card-photo img{transition:none}}
