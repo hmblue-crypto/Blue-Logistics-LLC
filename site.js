@@ -1,9 +1,33 @@
 const isHome=document.body.classList.contains('home-v2');
+/* Shared public-site tabs: full desktop navigation, compact service dropdown.
+   Keep the approved homepage and secure portal shell unchanged. */
+if(!isHome&&document.body.classList.contains('interior-reference')&&!document.body.classList.contains('interior-portal')){
+ const publicNav=document.querySelector('header .navlinks');
+ if(publicNav){
+  const path=location.pathname.split('/').pop()||'index.html';
+  const servicePages=['domestic-freight.html','import-export.html','warehousing.html','nationwide.html'];
+  const active=(page)=>path===page?' active':'';
+  const serviceActive=servicePages.includes(path);
+  publicNav.innerHTML='<a class="nav-primary-link'+active('index.html')+'" href="index.html">Home</a>'+
+   '<details class="nav-service-menu"><summary class="'+(serviceActive?'active':'')+'">Services <span aria-hidden="true">⌄</span></summary><div class="nav-service-panel">'+
+   '<a href="domestic-freight.html">Domestic Freight</a><a href="import-export.html">Import / Export</a><a href="warehousing.html">Warehousing</a><a href="nationwide.html">Nationwide Solutions</a></div></details>'+
+   '<a class="nav-primary-link'+active('industries.html')+'" href="industries.html">Industries</a>'+
+   '<a class="nav-primary-link'+active('carriers.html')+'" href="carriers.html">Carriers</a>'+
+   '<a class="nav-primary-link'+active('resources.html')+'" href="resources.html">Resources</a>'+
+   '<a class="nav-primary-link'+active('about.html')+'" href="about.html">About</a>'+
+   '<a class="nav-primary-link" href="portal.html">Track / Portal</a>'+
+   '<a class="cta-nav" href="contact.html#quote">Get a Quote →</a>';
+  const services=publicNav.querySelector('.nav-service-menu');
+  document.addEventListener('pointerdown',e=>{if(services?.open&&!services.contains(e.target))services.open=false});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&services?.open){services.open=false;services.querySelector('summary')?.focus()}});
+ }
+}
+
 if(!isHome&&!document.querySelector('link[href*="easy-customer.css"]')){const ec=document.createElement('link');ec.rel='stylesheet';ec.href='easy-customer.css?v=20260909-1';document.head.appendChild(ec)}
 const m=document.querySelector('.menu'),n=document.querySelector('.navlinks');
 if(m&&n){if(!n.id)n.id='primaryNavigation';m.setAttribute('aria-controls',n.id);m.setAttribute('aria-expanded','false');m.addEventListener('click',()=>{const open=n.classList.toggle('open');m.setAttribute('aria-expanded',String(open));m.setAttribute('aria-label',open?'Close menu':'Open menu')});document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>{n.classList.remove('open');m.setAttribute('aria-expanded','false');m.setAttribute('aria-label','Open menu')}))}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&n?.classList.contains('open')){n.classList.remove('open');m?.setAttribute('aria-expanded','false');m?.setAttribute('aria-label','Open menu');m?.focus()}});
-if(m&&n){document.addEventListener('pointerdown',event=>{if(n.classList.contains('open')&&!n.contains(event.target)&&!m.contains(event.target)){n.classList.remove('open');m.setAttribute('aria-expanded','false');m.setAttribute('aria-label','Open menu')}});window.addEventListener('resize',()=>{if(window.innerWidth>(isHome?1080:(document.body.classList.contains('interior-reference')?1180:760))&&n.classList.contains('open')){n.classList.remove('open');m.setAttribute('aria-expanded','false');m.setAttribute('aria-label','Open menu')}})}
+if(m&&n){document.addEventListener('pointerdown',event=>{if(n.classList.contains('open')&&!n.contains(event.target)&&!m.contains(event.target)){n.classList.remove('open');m.setAttribute('aria-expanded','false');m.setAttribute('aria-label','Open menu')}});window.addEventListener('resize',()=>{if(window.innerWidth>(isHome?1080:(document.body.classList.contains('interior-reference')?960:760))&&n.classList.contains('open')){n.classList.remove('open');m.setAttribute('aria-expanded','false');m.setAttribute('aria-label','Open menu')}})}
 const y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
 if(n&&!n.querySelector('a[href="portal.html"]')){const portal=document.createElement('a');portal.href='portal.html';portal.textContent='Customer Portal';const quote=n.querySelector('.cta-nav');n.insertBefore(portal,quote||null)}
 const connect=document.querySelector('footer .footer-grid>div:last-child');if(connect&&!connect.querySelector('a[href="portal.html"]')){const portalFoot=document.createElement('a');portalFoot.href='portal.html';portalFoot.textContent='Customer Portal';connect.prepend(portalFoot)}
