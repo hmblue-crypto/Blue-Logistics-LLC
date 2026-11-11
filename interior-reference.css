@@ -163,3 +163,8 @@ body.interior-checklist{--interior-photo:url("https://images.unsplash.com/photo-
 @media print{
  body.interior-checklist .interior-checklist-banner,body.interior-checklist header,body.interior-checklist .mobile-quote{display:none!important}
 }
+
+/* Photo strips for the six detailed industry pages. */
+body.interior-reference[class*="interior-industry-"] .phase3-card{overflow:hidden}
+body.interior-reference[class*="interior-industry-"] .phase3-card:before{content:"";display:block;height:120px;background:linear-gradient(0deg,rgba(3,20,43,.25),rgba(3,20,43,.05)),var(--interior-photo);background-size:cover;background-position:center;margin:-26px -26px 20px}
+body.interior-reference .about-cta-v2{background-color:#051d39;background-image:linear-gradient(90deg,rgba(5,26,50,.84),rgba(5,26,50,.95)),url("https://images.unsplash.com/photo-1707687849513-a92a112d1494?auto=format&fit=crop&w=1100&q=78");background-size:cover;background-position:left center}
