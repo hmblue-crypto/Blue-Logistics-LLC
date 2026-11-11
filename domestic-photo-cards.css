@@ -1,0 +1,29 @@
+/* Blue Logistics Domestic Freight image cards, approved visual system.
+   Scoped to this page; no changes to quote forms, other services or Home. */
+body.interior-reference.interior-domestic .mode-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px;align-items:stretch}
+body.interior-reference.interior-domestic .mode-grid .mode{position:relative;min-width:0;display:flex;flex-direction:column;overflow:hidden;padding:0;border:1px solid #d4e5f2;border-radius:17px;background:#fff;box-shadow:0 8px 23px rgba(7,39,72,.08);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+body.interior-reference.interior-domestic .mode-grid .mode:before{display:none!important;content:none!important}
+body.interior-reference.interior-domestic .mode-grid .mode:hover{transform:translateY(-3px);border-color:#85bfea;box-shadow:0 18px 38px rgba(7,39,72,.14)}
+body.interior-reference.interior-domestic .mode-photo{position:relative;flex:0 0 auto;overflow:hidden;aspect-ratio:16/8.7;background:linear-gradient(125deg,#0a315a,#176da9)}
+body.interior-reference.interior-domestic .mode-photo img{width:100%;height:100%;display:block;object-fit:cover;object-position:center center;transition:transform .24s ease}
+body.interior-reference.interior-domestic .mode:hover .mode-photo img{transform:scale(1.045)}
+body.interior-reference.interior-domestic .mode-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,17,37,.43),transparent 54%);pointer-events:none}
+body.interior-reference.interior-domestic .mode-photo-tag{position:absolute;bottom:12px;left:16px;z-index:1;padding:6px 10px;border:1px solid rgba(255,255,255,.55);border-radius:99px;background:rgba(2,30,57,.6);color:#fff;font-weight:790;font-size:10px;letter-spacing:.025em;line-height:1.2;backdrop-filter:blur(3px)}
+body.interior-reference.interior-domestic .mode-content{position:relative;flex:1;padding:23px 23px 26px;min-height:145px}
+body.interior-reference.interior-domestic .mode-content i{display:grid;place-items:center;position:absolute;top:-24px;left:20px;margin:0;width:48px;height:48px;border:3px solid #fff;border-radius:14px;background:#e9f5ff;color:#0876df;box-shadow:0 4px 10px rgba(8,50,91,.07);font-style:normal;font-size:23px;line-height:1}
+body.interior-reference.interior-domestic .mode-content h3{color:#0d2f4e;font-weight:850;font-size:clamp(18px,1.55vw,23px);line-height:1.18;letter-spacing:-.027em;margin:10px 0 10px}
+body.interior-reference.interior-domestic .mode-content p{color:#536b81;font-size:14px;line-height:1.62;margin:0}
+body.interior-reference.interior-domestic .section.soft .section-head h2{letter-spacing:-.04em}
+@media(max-width:1050px){
+ body.interior-reference.interior-domestic .mode-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+ body.interior-reference.interior-domestic .mode-content{min-height:150px}
+}
+@media(max-width:700px){
+ body.interior-reference.interior-domestic .mode-grid{grid-template-columns:1fr;gap:16px}
+ body.interior-reference.interior-domestic .mode-photo{aspect-ratio:16/8.8}
+ body.interior-reference.interior-domestic .mode-content{min-height:0;padding:22px 19px 24px}
+ body.interior-reference.interior-domestic .mode-content i{left:17px}
+}
+@media(prefers-reduced-motion:reduce){
+ body.interior-reference.interior-domestic .mode-grid .mode,body.interior-reference.interior-domestic .mode-photo img{transition:none}
+}
