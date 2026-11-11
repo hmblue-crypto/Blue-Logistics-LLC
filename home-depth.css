@@ -1,0 +1,36 @@
+/* Blue Logistics homepage depth upgrade: scoped additions only. */
+.home-v3 .hero-specialties{margin:24px 0 0;padding:18px 20px;border:1px solid rgba(139,202,255,.24);border-radius:14px;background:rgba(13,67,107,.48)}
+.home-v3 .hero-specialties>strong{display:block;margin-bottom:12px;color:#9ed3ff;font-size:11px;letter-spacing:.12em;font-weight:800}
+.home-v3 .hero-specialty-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
+.home-v3 .hero-specialty-grid span{position:relative;padding-left:19px;font-size:13px;line-height:1.4;color:#e5f2ff;font-weight:650}
+.home-v3 .hero-specialty-grid span:before{content:"✓";position:absolute;left:0;top:0;color:#82c5ff;font-weight:900}
+.home-v3 .hero-call-row{margin-top:24px}
+.home-v3 .depth-industries,.home-v3 .depth-process{padding:76px 0}
+.home-v3 .depth-industries{background:#f3f7fb}
+.home-v3 .depth-process{background:#fff}
+.home-v3 .depth-heading{max-width:770px;margin:0 auto 34px;text-align:center}
+.home-v3 .depth-kicker{display:block;color:#0672d7;font-size:11px;font-weight:850;letter-spacing:.13em}
+.home-v3 .depth-heading h2{color:#102b48;font-size:clamp(29px,3.15vw,40px);line-height:1.17;letter-spacing:-.035em;margin:12px 0 14px}
+.home-v3 .depth-heading p{margin:0;color:#4d6378;font-size:16px;line-height:1.7}
+.home-v3 .depth-industry-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.home-v3 .depth-industry-card{min-width:0;padding:25px;border:1px solid #dae5ef;border-radius:16px;background:#fff;box-shadow:0 8px 24px rgba(10,39,66,.035)}
+.home-v3 .depth-industry-card>span{display:block;color:#0872d7;font-size:10px;letter-spacing:.09em;font-weight:850}
+.home-v3 .depth-industry-card h3{margin:13px 0 10px;font-size:19px;line-height:1.3;color:#102b48}
+.home-v3 .depth-industry-card p{font-size:14px;line-height:1.7;color:#53687a;margin:0}
+.home-v3 .depth-industry-footer{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:22px;padding:25px 28px;border:1px solid #d1e4f4;border-radius:16px;background:#e8f3ff}
+.home-v3 .depth-industry-footer p{margin:0;max-width:750px;color:#314b64;font-size:14px;line-height:1.65}
+.home-v3 .depth-industry-footer strong{color:#102b48}
+.home-v3 .depth-industry-footer a{white-space:nowrap;font-size:14px;font-weight:800;color:#0668c8;min-height:44px;display:inline-flex;align-items:center}
+.home-v3 .depth-process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.home-v3 .depth-process-grid>div{position:relative;min-width:0;padding:26px 22px;border-top:3px solid #1880e4;background:#f4f8fc;border-radius:0 0 14px 14px}
+.home-v3 .depth-process-grid b{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:11px;color:#0872df;background:#e0eefc;font-size:15px}
+.home-v3 .depth-process-grid h3{margin:16px 0 10px;font-size:19px;color:#102b48}
+.home-v3 .depth-process-grid p{margin:0;font-size:14px;line-height:1.7;color:#526a80}
+.home-v3 .depth-process-cta{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:26px;padding:26px 30px;border-radius:16px;background:#0b2c4c;color:#fff}
+.home-v3 .depth-process-cta strong{font-size:19px}
+.home-v3 .depth-process-cta p{margin:6px 0 0;color:#c4dcf0;font-size:14px}
+.home-v3 .depth-process-cta>div:last-child{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.home-v3 .depth-process-email{color:#b9e0ff;text-decoration:underline;text-underline-offset:3px;font-size:13px;font-weight:700}
+@media(max-width:980px){.home-v3 .depth-industry-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-v3 .depth-process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:850px){.home-v3 .depth-industries,.home-v3 .depth-process{padding:54px 0}.home-v3 .depth-industry-footer,.home-v3 .depth-process-cta{align-items:flex-start;flex-direction:column}}
+@media(max-width:600px){.home-v3 .hero-specialties{padding:16px}.home-v3 .hero-specialty-grid{grid-template-columns:1fr;gap:10px}.home-v3 .depth-industry-grid,.home-v3 .depth-process-grid{grid-template-columns:1fr}.home-v3 .depth-industries,.home-v3 .depth-process{padding:46px 0}.home-v3 .depth-heading{margin-bottom:24px}.home-v3 .depth-industry-card,.home-v3 .depth-process-grid>div{padding:22px}.home-v3 .depth-industry-footer,.home-v3 .depth-process-cta{padding:22px}.home-v3 .depth-process-cta .btn{width:100%;text-align:center}.home-v3 .depth-process-cta>div:last-child{width:100%}}
