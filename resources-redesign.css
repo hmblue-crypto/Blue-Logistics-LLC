@@ -1,7 +1,7 @@
 /* Blue Logistics approved Resources visual refresh, 2026-11-11.
    Scoped to Resources only: no homepage, carrier forms or portal changes. */
 body.interior-reference.interior-resources{--resource-navy:#071e3a;--resource-blue:#086fe8;--resource-ink:#102f50;--resource-muted:#4c647c;background:#f8fbff}
-body.interior-reference.interior-resources .phase3-hero.resources-hero{min-height:225px;display:flex;align-items:center;padding:32px 0 34px;background-color:#041d38;background-image:linear-gradient(98deg,rgba(2,19,42,.97) 0%,rgba(3,27,55,.89) 45%,rgba(3,29,58,.49) 77%,rgba(3,29,58,.28) 100%),url("https://images.pexels.com/photos/27508769/pexels-photo-27508769.jpeg?auto=compress&cs=tinysrgb&w=1800");background-position:center 48%;background-size:cover}
+body.interior-reference.interior-resources .phase3-hero.resources-hero{min-height:225px;display:flex;align-items:center;padding:32px 0 34px;background-color:#041d38;background-image:linear-gradient(98deg,rgba(2,19,42,.97) 0%,rgba(3,27,55,.89) 45%,rgba(3,29,58,.49) 77%,rgba(3,29,58,.28) 100%),url("https://images.pexels.com/photos/37753989/pexels-photo-37753989.jpeg?auto=compress&cs=tinysrgb&w=1800");background-position:center 48%;background-size:cover}
 body.interior-reference.interior-resources .resources-hero-inner{position:relative;z-index:1}
 body.interior-reference.interior-resources .resources-hero .eyebrow{color:#59c5ff;letter-spacing:.19em;font-size:11px;font-weight:900}
 body.interior-reference.interior-resources .resources-hero h1{color:#fff;font-size:clamp(34px,3.9vw,53px);letter-spacing:-.05em;line-height:1.06;margin:10px 0 8px;max-width:770px}
@@ -66,3 +66,8 @@ body.interior-reference.interior-resources .cta-strip{background:linear-gradient
  body.interior-reference.interior-resources .resources-card-body{padding:18px 18px 20px}
 }
 @media(prefers-reduced-motion:reduce){body.interior-reference.interior-resources .resource-grid .resource-card,body.interior-reference.interior-resources .resources-card-photo img{transition:none}}
+
+/* Preserve white text and readable contrast in the dark Fast Prep section. */
+body.interior-reference.interior-resources .phase3-dark .section-head h2{color:#fff}
+body.interior-reference.interior-resources .phase3-dark .section-head p{color:#d6e6f3}
+body.interior-reference.interior-resources .phase3-dark .section-head span{color:#7dceff}
