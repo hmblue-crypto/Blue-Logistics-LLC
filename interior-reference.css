@@ -182,7 +182,7 @@ body.interior-reference header .nav-service-panel{position:absolute;top:calc(100
 body.interior-reference header .nav-service-panel a{display:block;color:#173753;min-height:38px;white-space:nowrap;padding:9px 12px;border-radius:7px;font-size:13px}
 body.interior-reference header .nav-service-panel a:hover{color:#006de1;background:#edf6ff}
 body.interior-reference header .nav-service-menu>summary:focus-visible{outline:3px solid #66baff;outline-offset:4px;border-radius:4px}
-@media(min-width:1021px){
+@media(min-width:1081px){
  body.interior-reference header .menu{display:none!important}
  body.interior-reference header .navlinks{display:flex!important;position:static!important;flex-direction:row!important;align-items:center!important;max-height:none!important;overflow:visible!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important}
  body.interior-reference header .navlinks .nav-primary-link,body.interior-reference header .nav-service-menu>summary{white-space:nowrap}
@@ -191,7 +191,7 @@ body.interior-reference header .nav-service-menu>summary:focus-visible{outline:3
  body.interior-reference header .brand strong{font-size:clamp(16px,1.45vw,21px)}
  body.interior-reference header .brand img{width:44px;height:44px}
 }
-@media(max-width:1020px){
+@media(max-width:1080px){
  body.interior-reference header .menu{display:block}
  body.interior-reference header .navlinks{display:none}
  body.interior-reference header .navlinks.open{display:flex}
@@ -199,4 +199,18 @@ body.interior-reference header .nav-service-menu>summary:focus-visible{outline:3
  body.interior-reference header .nav-service-menu>summary{padding:8px 12px;min-height:44px;font-size:14px}
  body.interior-reference header .nav-service-panel{position:static;box-shadow:none;margin:2px 0 8px;border:1px solid #e1ebf3;background:#f5f9fd}
  body.interior-reference header .nav-service-panel a{font-size:14px}
+}
+
+/* Fit complete desktop tabs inside 1120px laptop browser viewports.
+   Reserve hamburger navigation for widths 1080px and below. */
+@media(min-width:1081px) and (max-width:1240px){
+ body.interior-reference header .nav.container{width:calc(100% - 28px);gap:7px}
+ body.interior-reference header .navlinks{gap:4px;font-size:11px}
+ body.interior-reference header .navlinks a{font-size:11px}
+ body.interior-reference header .nav-service-menu>summary{font-size:11px}
+ body.interior-reference header .navlinks .cta-nav{padding:9px 10px}
+ body.interior-reference header .brand{gap:7px}
+ body.interior-reference header .brand img{width:40px;height:40px}
+ body.interior-reference header .brand strong{font-size:15px}
+ body.interior-reference header .brand small{font-size:7px;letter-spacing:.07em}
 }
