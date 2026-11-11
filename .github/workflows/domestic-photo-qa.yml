@@ -1,0 +1,38 @@
+name: Domestic Freight photo visual QA
+on:
+  push:
+    branches:
+      - domestic-freight-unique-photos-20261111
+  pull_request:
+    paths:
+      - domestic-freight.html
+      - domestic-photo-cards.css
+      - tests/domestic-photos.cjs
+permissions:
+  contents: read
+jobs:
+  domestic-photo-qa:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test dependency
+        run: npm install --no-save --ignore-scripts playwright@1.58.2
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Test images, navigation and responsive layouts
+        run: node tests/domestic-photos.cjs
+      - name: Save desktop and mobile screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: domestic-freight-visual-qa
+          path: .domestic-qa/*.png
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 7
