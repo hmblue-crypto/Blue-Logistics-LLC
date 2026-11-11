@@ -1,0 +1,165 @@
+/* BLUE LOGISTICS LLC — approved cinematic design system for public interior pages.
+   Deliberately scoped: leaves the live homepage and private owner OS untouched. */
+body.interior-reference{--ir-navy:#051d37;--ir-navy-deep:#04152b;--ir-blue:#0578f2;--ir-cyan:#66c6ff;--ir-ink:#0b2949;--ir-muted:#536b82;color:var(--ir-ink);background:#fff}
+body.interior-reference .container{width:min(1380px,calc(100% - 48px));margin-inline:auto}
+body.interior-reference .utility{background:#051d37;color:#e0effe}
+body.interior-reference header{position:sticky;top:0;z-index:900;background:#fff;color:#082340;border-bottom:1px solid #e1e9f1;box-shadow:0 2px 15px rgba(10,39,67,.09)}
+body.interior-reference .nav{min-height:78px;gap:18px}
+body.interior-reference .brand{flex-shrink:0;gap:10px}
+body.interior-reference .brand img{width:48px;height:48px;object-fit:contain;border-radius:8px}
+body.interior-reference .brand strong{font-size:clamp(17px,1.45vw,22px);white-space:nowrap;letter-spacing:-.047em}
+body.interior-reference .brand strong span{color:#0879ea}
+body.interior-reference .brand small{font-size:9px;letter-spacing:.12em;color:#4a6886}
+body.interior-reference .navlinks{gap:12px;font-size:12px}
+body.interior-reference .navlinks a{color:#12324f;min-height:44px;display:inline-flex;align-items:center;white-space:nowrap}
+body.interior-reference .navlinks a:hover,body.interior-reference .navlinks a.active{color:#0879ea}
+body.interior-reference .navlinks .cta-nav{background:linear-gradient(100deg,#0084f5,#0765e4);color:#fff;border-radius:9px;padding:10px 14px;box-shadow:0 6px 15px rgba(0,107,220,.15)}
+body.interior-reference .menu{color:#12324f;min-width:44px;min-height:44px;cursor:pointer}
+body.interior-reference a:focus-visible,body.interior-reference button:focus-visible,body.interior-reference input:focus-visible,body.interior-reference select:focus-visible,body.interior-reference textarea:focus-visible{outline:3px solid #65bdff;outline-offset:3px}
+body.interior-reference .btn.primary{background:linear-gradient(105deg,#007cf4,#0657dd);color:#fff;border-radius:10px;min-height:46px}
+body.interior-reference .pagehero,body.interior-reference .phase3-hero{position:relative;isolation:isolate;overflow:hidden;background-color:#061d39;background-image:linear-gradient(93deg,rgba(1,17,36,.97) 0%,rgba(2,24,49,.90) 41%,rgba(2,25,50,.72) 64%,rgba(2,25,50,.63) 100%),var(--interior-photo);background-size:cover;background-position:center center;color:#fff;padding:52px 0 54px;min-height:410px}
+body.interior-reference .pagehero:after,body.interior-reference .phase3-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,10,27,.35),transparent 49%);z-index:-1;pointer-events:none}
+body.interior-reference .interior-hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(300px,.72fr);align-items:center;gap:clamp(20px,4vw,62px);position:relative;z-index:1}
+body.interior-reference .interior-hero-copy{min-width:0}
+body.interior-reference .interior-hero-copy .eyebrow{display:inline-flex;padding:7px 12px;border-radius:999px;border:1px solid #79caff;background:rgba(4,54,94,.55);color:#c9edff;font-size:10px;letter-spacing:.15em}
+body.interior-reference .interior-hero-copy h1{font-size:clamp(38px,4.2vw,63px);font-weight:900;line-height:1.05;letter-spacing:-.05em;color:#fff;margin:17px 0 14px;max-width:850px}
+body.interior-reference .interior-hero-copy p{color:#e6f1ff;line-height:1.65;font-size:17px;max-width:720px;margin:0}
+body.interior-reference .interior-hero-copy .phase3-actions{margin-top:24px}
+body.interior-reference .interior-hero-panel{background:rgba(255,255,255,.97);color:#133353;border-radius:18px;border-top:5px solid #007bf5;box-shadow:0 22px 56px rgba(0,0,0,.25);padding:23px 26px 24px}
+body.interior-reference .interior-hero-panel>span{font-size:10px;color:#0672df;letter-spacing:.13em;font-weight:900}
+body.interior-reference .interior-hero-panel h2{font-size:clamp(22px,2vw,28px);line-height:1.17;margin:9px 0 9px;letter-spacing:-.035em;color:#112e4b}
+body.interior-reference .interior-hero-panel p{color:#506980;line-height:1.6;font-size:13px;margin:0}
+body.interior-reference .interior-hero-panel ul{display:grid;gap:10px;margin:17px 0;padding:0;list-style:none}
+body.interior-reference .interior-hero-panel li{position:relative;padding-left:22px;color:#244362;font-size:13px;font-weight:730;line-height:1.35}
+body.interior-reference .interior-hero-panel li:before{content:"✓";position:absolute;left:0;top:0;color:#0680f0;font-weight:900}
+body.interior-reference .interior-hero-panel .btn{width:100%;font-size:13px}
+body.interior-reference .interior-benefits{padding:18px 0;background:linear-gradient(105deg,#041e3b,#062b4e 75%,#05203d);color:#fff;border-bottom:2px solid #0c477c}
+body.interior-reference .interior-benefit-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+body.interior-reference .interior-benefit{min-width:0;display:flex;align-items:flex-start;gap:12px;padding:10px 20px;border-right:1px solid rgba(183,212,239,.35)}
+body.interior-reference .interior-benefit:last-child{border-right:0}
+body.interior-reference .interior-benefit svg{width:34px;height:34px;flex:0 0 34px;stroke:#e8f6ff;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+body.interior-reference .interior-benefit strong{display:block;color:#fff;font-size:13px;line-height:1.2}
+body.interior-reference .interior-benefit small{display:block;color:#bdd8ef;font-size:11px;line-height:1.4;margin-top:5px}
+body.interior-reference .service-proof-bar{display:none}
+body.interior-reference main .section{padding-block:64px}
+body.interior-reference main .section.soft{background:#f4f8fc}
+body.interior-reference main .section-head h2{font-size:clamp(30px,3.4vw,45px);letter-spacing:-.042em;line-height:1.13;color:#0c2844}
+body.interior-reference main .section-head span{color:#0274e7;font-size:11px;letter-spacing:.14em}
+body.interior-reference main .section-head p{font-size:15px;line-height:1.7;color:#506b80}
+body.interior-reference main .feature-panel{border:1px solid #286b9f;border-radius:18px;background:linear-gradient(145deg,#051b34,#0c3e69);box-shadow:0 18px 38px rgba(4,21,42,.15);padding:32px}
+body.interior-reference main .feature-panel h3{color:#fff}
+body.interior-reference .service-page .section-head h2{font-size:clamp(32px,3.4vw,44px)}
+body.interior-reference .mode-grid{gap:18px}
+body.interior-reference .mode{overflow:hidden;border:1px solid #d7e6f3;background:#fff;border-radius:16px;padding:20px 22px 23px;box-shadow:0 12px 25px rgba(5,28,57,.07);transition:transform .18s ease,box-shadow .18s ease}
+body.interior-reference .mode:before{content:"";display:block;height:124px;margin:-20px -22px 20px;background:linear-gradient(0deg,rgba(3,25,50,.35),rgba(3,25,50,.03)),var(--mode-image,var(--interior-photo));background-size:cover;background-position:center}
+body.interior-reference .mode:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(5,28,57,.14)}
+body.interior-reference .mode i{margin-top:-43px;position:relative;border:1px solid #fff;background:#e6f3ff;color:#0576e9}
+body.interior-reference .mode h3{color:#102f4e}
+body.interior-reference .service-case-grid{gap:18px}
+body.interior-reference .service-case{background:linear-gradient(150deg,#061b33,#0b3155);border:1px solid #1b628f;color:#fff;border-radius:18px}
+body.interior-reference .service-case h3{color:#fff}
+body.interior-reference .service-case p,body.interior-reference .service-case small{color:#c5daed}
+body.interior-reference .phase3-grid,.interior-reference .resource-grid{gap:18px}
+body.interior-reference :is(.phase3-card,.resource-card,.carrier-step,.about-service-grid>a,.tool-card){border-radius:17px;box-shadow:0 9px 30px rgba(13,53,92,.07);border-color:#d6e5f0}
+body.interior-reference .industry-links{gap:16px}
+body.interior-reference .industry-link{position:relative;isolation:isolate;min-height:232px;display:flex;flex-direction:column;justify-content:end;overflow:hidden;background-color:#06203d;background-image:linear-gradient(0deg,rgba(2,17,37,.98),rgba(2,17,37,.76) 43%,rgba(2,17,37,.11) 100%),var(--industry-card-image);background-position:center;background-size:cover;color:#fff;border:1px solid #204e73;border-radius:14px;box-shadow:0 10px 26px rgba(8,34,62,.09);transition:transform .2s ease}
+body.interior-reference .industry-link:nth-child(1){--industry-card-image:url("https://images.pexels.com/photos/34207359/pexels-photo-34207359.jpeg?auto=compress&cs=tinysrgb&w=800")}
+body.interior-reference .industry-link:nth-child(2){--industry-card-image:url("https://images.unsplash.com/photo-1634255970497-78ffb2b08ae8?auto=format&fit=crop&w=800&q=80")}
+body.interior-reference .industry-link:nth-child(3){--industry-card-image:url("https://images.pexels.com/photos/36766860/pexels-photo-36766860.jpeg?auto=compress&cs=tinysrgb&w=800")}
+body.interior-reference .industry-link:nth-child(4){--industry-card-image:url("https://images.unsplash.com/photo-1714650601435-67a4d51a0798?auto=format&fit=crop&w=800&q=80")}
+body.interior-reference .industry-link:nth-child(5){--industry-card-image:url("https://images.unsplash.com/photo-1530037335614-e68828dcf258?auto=format&fit=crop&w=800&q=80")}
+body.interior-reference .industry-link:nth-child(6){--industry-card-image:url("https://images.pexels.com/photos/1544372/pexels-photo-1544372.jpeg?auto=compress&cs=tinysrgb&w=800")}
+body.interior-reference .industry-link:hover{transform:translateY(-4px)}
+body.interior-reference .industry-link strong{color:#fff;font-size:22px;line-height:1.18}
+body.interior-reference .industry-link span{color:#e2f1ff;font-size:13px;line-height:1.45}
+body.interior-reference .resource-card:before{content:"";display:block;height:118px;border-radius:12px;margin:-7px -7px 20px;background:linear-gradient(0deg,rgba(4,26,48,.25),transparent),var(--interior-photo);background-position:center;background-size:cover}
+body.interior-reference .resource-card:nth-child(2n):before{background-position:60% 25%}
+body.interior-reference main .cta-strip,body.interior-reference .interior-bottom-cta{background-color:#051d39;background-image:linear-gradient(90deg,rgba(5,26,50,.42),rgba(5,26,50,.92) 41%,#071c36 100%),url("https://images.unsplash.com/photo-1707687849513-a92a112d1494?auto=format&fit=crop&w=1100&q=78");background-size:cover;background-position:left center;color:#fff;padding:40px 0}
+body.interior-reference main .cta-strip h2,body.interior-reference .interior-bottom-cta h2{color:#fff;font-size:clamp(27px,3vw,38px);line-height:1.13;letter-spacing:-.035em;margin:0}
+body.interior-reference main .cta-strip p,body.interior-reference .interior-bottom-cta p{color:#e0f0ff;margin:7px 0 0;font-size:15px}
+body.interior-reference main .cta-strip .btn.primary{background:#0877ed;color:#fff}
+body.interior-reference .interior-bottom-cta .container{display:flex;justify-content:space-between;align-items:center;gap:20px}
+body.interior-reference .interior-bottom-actions{display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+body.interior-reference .interior-bottom-actions a{min-height:47px;padding:12px 18px;border-radius:9px;font-weight:800;font-size:14px;display:inline-flex;align-items:center;justify-content:center}
+body.interior-reference .interior-bottom-actions a:first-child{background:#0875ee;color:#fff}
+body.interior-reference .interior-bottom-actions a:last-child{border:1px solid #fff;background:rgba(4,20,41,.4);color:#fff}
+body.interior-reference footer{background:#041429;color:#c5d9e9}
+body.interior-reference footer .footbrand,body.interior-reference footer h4{color:#fff}
+body.interior-reference footer a{color:#c7def1}
+body.interior-reference footer a:hover{color:#82caff}
+/* Existing specialized layouts: upgrade only their shell and imagery; preserve forms, auth, and editors. */
+body.interior-about .about-hero-v2{position:relative;background-image:linear-gradient(99deg,rgba(4,20,40,.95),rgba(4,25,49,.73)),var(--interior-photo);background-size:cover;background-position:center}
+body.interior-about .about-hero-v2 h1,body.interior-about .about-hero-v2 p{color:#fff}
+body.interior-about .about-facts-card{background:rgba(255,255,255,.98);box-shadow:0 20px 60px rgba(0,0,0,.16)}
+body.interior-about .about-trust-strip{background:#051e3a;color:#fff}
+body.interior-contact .contact-grid{gap:24px}
+body.interior-contact .contact-card{background:linear-gradient(135deg,#061c35,#0d3d68);border-radius:18px}
+body.interior-contact #quoteForm{border-top:5px solid #0a7df2;scroll-margin-top:100px}
+body.interior-tools .tools-hero{position:relative;background-image:linear-gradient(103deg,rgba(1,18,39,.95),rgba(4,31,58,.73)),var(--interior-photo);background-size:cover;background-position:center}
+body.interior-tools .tools-hero h1{color:#fff}
+body.interior-portal .portal-hero{background-image:linear-gradient(98deg,rgba(3,23,44,.95),rgba(4,38,70,.75)),var(--interior-photo);background-size:cover;background-position:center}
+body.interior-portal .portal-hero h1{color:#fff}
+body.interior-portal .portal-login-card{border-top:5px solid #0879ea}
+body.interior-portal .portal-shell,body.interior-portal .portal-app{scroll-margin-top:100px}
+body.interior-checklist .interior-checklist-banner{background:linear-gradient(100deg,rgba(3,18,35,.98),rgba(6,43,75,.83)),var(--interior-photo);background-size:cover;background-position:center;padding:30px 0;color:#fff}
+body.interior-checklist .interior-checklist-banner h2{font-size:25px;color:#fff;margin:0}
+body.interior-checklist .interior-checklist-banner p{color:#d9ecfa;margin:7px 0 0}
+body.interior-checklist main.tool{background:#fff}
+body.interior-reference .interior-hero-copy .btn.outline{border-color:#c6e7ff;color:#fff;background:rgba(2,25,52,.44)}
+body.interior-reference .mobile-quote{z-index:800}
+body.interior-reference .pagehero a,body.interior-reference .phase3-hero a{scroll-margin-top:95px}
+/* Named image backgrounds: preserve readable dark fallback if a third-party image is unavailable. */
+body.interior-domestic{--interior-photo:url("https://images.pexels.com/photos/27508769/pexels-photo-27508769.jpeg?auto=compress&cs=tinysrgb&w=1900")}
+body.interior-import{--interior-photo:url("https://images.pexels.com/photos/1544372/pexels-photo-1544372.jpeg?auto=compress&cs=tinysrgb&w=1900")}
+body.interior-warehousing{--interior-photo:url("https://images.unsplash.com/photo-1714650601435-67a4d51a0798?auto=format&fit=crop&w=1900&q=84")}
+body.interior-nationwide{--interior-photo:url("https://images.pexels.com/photos/27508769/pexels-photo-27508769.jpeg?auto=compress&cs=tinysrgb&w=1900")}
+body.interior-industries,body.interior-industry-manufacturing{--interior-photo:url("https://images.pexels.com/photos/34207359/pexels-photo-34207359.jpeg?auto=compress&cs=tinysrgb&w=1900")}
+body.interior-industry-construction{--interior-photo:url("https://images.unsplash.com/photo-1634255970497-78ffb2b08ae8?auto=format&fit=crop&w=1900&q=84")}
+body.interior-industry-paper-packaging,body.interior-industry-plastics{--interior-photo:url("https://images.pexels.com/photos/36766860/pexels-photo-36766860.jpeg?auto=compress&cs=tinysrgb&w=1900")}
+body.interior-industry-retail-distribution,body.interior-resources,body.interior-tools{--interior-photo:url("https://images.unsplash.com/photo-1714650601435-67a4d51a0798?auto=format&fit=crop&w=1900&q=84")}
+body.interior-industry-food-beverage{--interior-photo:url("https://images.unsplash.com/photo-1530037335614-e68828dcf258?auto=format&fit=crop&w=1900&q=84")}
+body.interior-industry-importers{--interior-photo:url("https://images.pexels.com/photos/1544372/pexels-photo-1544372.jpeg?auto=compress&cs=tinysrgb&w=1900")}
+body.interior-about,body.interior-carriers,body.interior-contact,body.interior-portal{--interior-photo:url("https://images.pexels.com/photos/27508769/pexels-photo-27508769.jpeg?auto=compress&cs=tinysrgb&w=1900")}
+body.interior-checklist{--interior-photo:url("https://images.unsplash.com/photo-1714650601435-67a4d51a0798?auto=format&fit=crop&w=1900&q=84")}
+@media(max-width:1180px){
+ body.interior-reference .menu{display:block}
+ body.interior-reference .navlinks{display:none;position:absolute;top:100%;left:0;right:0;max-height:calc(100dvh - 78px);overflow:auto;flex-direction:column;align-items:stretch;background:#fff;color:#173956;padding:14px 24px;border-bottom:1px solid #d9e7f2;box-shadow:0 16px 22px rgba(6,26,50,.1);gap:4px}
+ body.interior-reference .navlinks.open{display:flex}
+ body.interior-reference .navlinks a{padding:8px 12px;min-height:44px;font-size:14px}
+ body.interior-reference .navlinks .cta-nav{justify-content:center}
+ body.interior-reference .interior-hero-grid{grid-template-columns:minmax(0,1.05fr) minmax(280px,.85fr)}
+ body.interior-reference .interior-benefit{padding:10px}
+}
+@media(max-width:850px){
+ body.interior-reference .interior-hero-grid{grid-template-columns:1fr;gap:22px}
+ body.interior-reference .pagehero,body.interior-reference .phase3-hero{padding:32px 0 36px}
+ body.interior-reference .interior-hero-panel{max-width:670px}
+ body.interior-reference .interior-benefit-grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:8px}
+ body.interior-reference .interior-benefit:nth-child(2){border-right:0}
+ body.interior-reference .interior-bottom-cta .container{flex-direction:column;align-items:flex-start}
+ body.interior-reference .industry-links{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+ body.interior-reference .container{width:calc(100% - 32px)}
+ body.interior-reference .nav{min-height:70px}
+ body.interior-reference .brand strong{font-size:17px}
+ body.interior-reference .brand img{width:42px;height:42px}
+ body.interior-reference .brand small{font-size:8px;letter-spacing:.07em}
+ body.interior-reference .interior-hero-copy h1{font-size:clamp(34px,8.6vw,44px);margin:14px 0 12px}
+ body.interior-reference .interior-hero-copy p{font-size:15px}
+ body.interior-reference .interior-hero-panel{padding:20px}
+ body.interior-reference .interior-benefit-grid{grid-template-columns:1fr 1fr}
+ body.interior-reference .interior-benefit{gap:8px;padding:9px 7px}
+ body.interior-reference .interior-benefit svg{width:25px;height:25px;flex-basis:25px}
+ body.interior-reference .interior-benefit strong{font-size:11.5px}
+ body.interior-reference .interior-benefit small{font-size:10px}
+ body.interior-reference .industry-links{grid-template-columns:1fr}
+ body.interior-reference .industry-link{min-height:190px}
+ body.interior-reference .mode-grid,.interior-reference .phase3-grid,.interior-reference .resource-grid{grid-template-columns:1fr}
+ body.interior-reference .interior-bottom-actions{width:100%}
+ body.interior-reference .interior-bottom-actions a{width:100%}
+ body.interior-reference main .section{padding-block:46px}
+}
+@media print{
+ body.interior-checklist .interior-checklist-banner,body.interior-checklist header,body.interior-checklist .mobile-quote{display:none!important}
+}
