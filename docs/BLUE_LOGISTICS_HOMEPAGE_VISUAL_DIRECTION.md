@@ -68,3 +68,5 @@ The images are Pexels contributors' photos and are used under [Pexels' license](
 | Import Handoff Guide | 1544372 | https://www.pexels.com/photo/blue-and-red-cargo-ship-with-crane-1544372/ | Marine cargo equipment |
 
 Keep all seven resource photographs unique. Avoid invented statistics, customer endorsements or false claims that generic stock assets are our own company vehicles. Replace any photograph if the CDN stops serving it or if the subject does not match its use.
+
+The Resources banner uses the Pexels photograph `37753989` (Laszlo Magyar; https://www.pexels.com/photo/blue-semi-truck-on-a-scenic-mountain-highway-37753989/) rather than a photo that prominently displays another carrier's wordmark. Treat it as illustrative stock photography, not a Blue Logistics truck.
