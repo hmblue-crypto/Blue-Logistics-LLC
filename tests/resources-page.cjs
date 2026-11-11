@@ -62,6 +62,10 @@ const requiredLinks=['freight-tools.html','freight-quote-checklist.html','bol-ch
           catch{throw new Error('Resource photo '+(i+1)+' could not load: '+await img.getAttribute('src'))}
         }
       }
+      const fastPrepColor=await page.locator('.phase3-dark .section-head h2').evaluate(el=>getComputedStyle(el).color);
+      assert.equal(fastPrepColor,'rgb(255, 255, 255)','Fast Prep heading lacks adequate contrast');
+      await page.evaluate(()=>window.scrollTo(0,0));
+      await page.waitForTimeout(120);
       await page.screenshot({path:path.join(output,'resources-'+width+'.png'),fullPage:true});
       assert.deepEqual(errors,[],'Page JavaScript errors at '+width);
       console.log('PASS resources',width,'columns',computedColumns,'cards',images.length,'navigation/links OK');
