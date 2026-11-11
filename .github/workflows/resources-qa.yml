@@ -34,4 +34,5 @@ jobs:
           name: resources-visual-qa
           path: .resources-qa/*.png
           if-no-files-found: ignore
+          include-hidden-files: true
           retention-days: 7
