@@ -1,0 +1,37 @@
+name: Resources design QA
+on:
+  push:
+    branches:
+      - resources-photo-card-redesign-20261111
+  pull_request:
+    paths:
+      - 'resources.html'
+      - 'resources-redesign.css'
+      - 'tests/resources-page.cjs'
+permissions:
+  contents: read
+jobs:
+  resources-playwright:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated Playwright
+        run: npm install --no-save --ignore-scripts playwright@1.58.2
+      - name: Install Chromium and system dependencies
+        run: npx playwright install --with-deps chromium
+      - name: Desktop tablet mobile and image smoke test
+        run: node tests/resources-page.cjs
+      - name: Save Resources page screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resources-visual-qa
+          path: .resources-qa/*.png
+          if-no-files-found: ignore
+          retention-days: 7
