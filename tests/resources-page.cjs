@@ -41,6 +41,10 @@ const requiredLinks=['freight-tools.html','freight-quote-checklist.html','bol-ch
       const computedColumns=await page.locator('.resource-grid').evaluate(e=>getComputedStyle(e).gridTemplateColumns.split(' ').filter(Boolean).length);
       assert.equal(computedColumns,width<=700?1:width<=1020?2:3,'Unexpected card grid columns at '+width);
       const overflow=await page.evaluate(()=>({document:document.documentElement.scrollWidth,window:innerWidth}));
+      if(overflow.document>overflow.window+1){
+        const offenders=await page.evaluate(()=>Array.from(document.querySelectorAll('body *')).map(el=>({tag:el.tagName,classes:el.className?.baseVal||el.className||'',text:(el.textContent||'').trim().slice(0,45),right:Math.round(el.getBoundingClientRect().right),width:Math.round(el.getBoundingClientRect().width)})).filter(x=>x.right>innerWidth+2).slice(0,14));
+        console.log('OVERFLOW ELEMENTS',width,JSON.stringify(offenders));
+      }
       assert.ok(overflow.document<=overflow.window+1,'Horizontal overflow at '+width+': '+JSON.stringify(overflow));
       if(width>=1120)assert.equal(await page.locator('header .navlinks').isVisible(),true,'Desktop tabs hidden');
       if(width===390){const menu=page.locator('header .menu');assert.equal(await menu.isVisible(),true);await menu.click();assert.equal(await page.locator('header .navlinks').isVisible(),true);await menu.click();}
