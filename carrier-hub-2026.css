@@ -1,0 +1,111 @@
+/* BLUE LOGISTICS • Carrier Hub 2026 visual upgrade
+   Scoped to the public carrier page; compliance and form logic remain in phase3.js. */
+body.carrier-hub-2026{--carrier-navy:#041a34;--carrier-blue:#087cf1;--carrier-cyan:#70c9ff}
+body.carrier-hub-2026 .utility{background:#03172d}
+body.carrier-hub-2026 .phase3-hero{min-height:525px;background-image:linear-gradient(96deg,rgba(1,14,31,.96) 0%,rgba(2,22,45,.83) 42%,rgba(3,25,47,.62) 65%,rgba(2,26,52,.66) 100%),url("https://images.pexels.com/photos/27508769/pexels-photo-27508769.jpeg?auto=compress&cs=tinysrgb&w=1900");background-size:cover;background-position:center 46%;padding:57px 0}
+body.carrier-hub-2026 .interior-hero-copy h1{font-size:clamp(42px,4.6vw,70px);line-height:1.02;max-width:780px}
+body.carrier-hub-2026 .interior-hero-copy p{max-width:730px;color:#e5f2ff}
+body.carrier-hub-2026 .interior-hero-panel{border-top:5px solid #0786fc}
+body.carrier-hub-2026 .carrier-hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 4px}
+body.carrier-hub-2026 .carrier-hero-tags span{padding:9px 12px;border:1px solid rgba(164,218,255,.50);background:rgba(3,28,58,.66);border-radius:999px;font-weight:750;font-size:11px;line-height:1;color:#eaf7ff}
+body.carrier-hub-2026 .phase3-actions{gap:12px}
+body.carrier-hub-2026 .phase3-actions .btn{min-height:47px}
+body.carrier-hub-2026 .carrier-section-nav{position:sticky;top:78px;z-index:850;background:#eff7ff;border-bottom:1px solid #c6e1f7;box-shadow:0 4px 14px rgba(4,36,70,.06)}
+body.carrier-hub-2026 .carrier-section-nav-inner{min-height:49px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+body.carrier-hub-2026 .carrier-section-nav strong{font-size:10px;letter-spacing:.16em;font-weight:900;color:#0870d6;white-space:nowrap}
+body.carrier-hub-2026 .carrier-section-links{display:flex;gap:8px;align-items:center;overflow-x:auto;scrollbar-width:thin}
+body.carrier-hub-2026 .carrier-section-links a{white-space:nowrap;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:770;color:#24455e;min-height:34px;display:inline-flex;align-items:center}
+body.carrier-hub-2026 .carrier-section-links a:hover,body.carrier-hub-2026 .carrier-section-links a:focus-visible{color:#006ee4;background:#dcefff}
+body.carrier-hub-2026 #carrier-how,body.carrier-hub-2026 #carrier-capabilities,body.carrier-hub-2026 #setup{scroll-margin-top:151px}
+body.carrier-hub-2026 .interior-benefits{background:linear-gradient(105deg,#041d3b,#07365c)}
+body.carrier-hub-2026 .carrier-spotlight{background:#f5f9fe;padding:55px 0}
+body.carrier-hub-2026 .carrier-spotlight-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,4vw,62px);align-items:center}
+body.carrier-hub-2026 .carrier-spotlight-photo{min-height:365px;border-radius:20px;position:relative;overflow:hidden;background-image:linear-gradient(0deg,rgba(3,24,45,.72),rgba(3,24,45,.02) 50%),url("https://images.pexels.com/photos/27099096/pexels-photo-27099096.jpeg?auto=compress&cs=tinysrgb&w=1400");background-position:center 52%;background-size:cover;box-shadow:0 20px 45px rgba(3,26,55,.18)}
+body.carrier-hub-2026 .carrier-spotlight-photo:before{content:"";position:absolute;inset:0;border:1px solid rgba(255,255,255,.24);border-radius:20px;pointer-events:none}
+body.carrier-hub-2026 .carrier-spotlight-photo span{position:absolute;bottom:25px;left:26px;color:#fff;font-size:11px;font-weight:900;letter-spacing:.17em;border-left:4px solid #48b5ff;padding:6px 0 6px 14px}
+body.carrier-hub-2026 .carrier-kicker{font-size:11px;font-weight:900;letter-spacing:.16em;color:#0676e5}
+body.carrier-hub-2026 .carrier-spotlight-copy h2{font-size:clamp(30px,3vw,44px);font-weight:900;line-height:1.1;letter-spacing:-.04em;color:#092641;margin:12px 0 15px}
+body.carrier-hub-2026 .carrier-spotlight-copy p{font-size:15px;line-height:1.75;color:#47627a;margin-bottom:19px}
+body.carrier-hub-2026 .carrier-spotlight-tags{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 22px}
+body.carrier-hub-2026 .carrier-spotlight-tags span{padding:9px 13px;border-radius:9px;background:#e1effc;border:1px solid #c3ddf2;font-size:12px;font-weight:750;color:#17456b}
+body.carrier-hub-2026 .carrier-workflow{position:relative;overflow:hidden;background:radial-gradient(circle at 16% 10%,rgba(20,111,195,.22),transparent 38%),linear-gradient(120deg,#03172e,#092d4d 65%,#041a35);color:#fff;padding:65px 0 58px}
+body.carrier-hub-2026 .carrier-workflow:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0,transparent 120px,rgba(99,174,231,.025) 121px,transparent 122px);pointer-events:none}
+body.carrier-hub-2026 .carrier-workflow .container{position:relative}
+body.carrier-hub-2026 .carrier-workflow .section-head{max-width:870px;margin-bottom:34px}
+body.carrier-hub-2026 .carrier-workflow .section-head span{color:#73c9ff}
+body.carrier-hub-2026 .carrier-workflow .section-head h2{color:#fff;font-weight:900;line-height:1.1;font-size:clamp(30px,3.5vw,45px)}
+body.carrier-hub-2026 .carrier-workflow .section-head p{color:#bdd6e8;font-size:15px}
+body.carrier-hub-2026 .carrier-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+body.carrier-hub-2026 .carrier-step{display:flex;flex-direction:column;position:relative;isolation:isolate;overflow:hidden;min-height:305px;padding:22px;background:linear-gradient(145deg,#103d63,#061b35);border:1px solid rgba(121,192,241,.42);border-radius:18px;box-shadow:0 16px 33px rgba(1,10,28,.25);transition:transform .2s ease,border-color .2s ease}
+body.carrier-hub-2026 .carrier-step:hover{transform:translateY(-5px);border-color:#77cdff}
+body.carrier-hub-2026 .carrier-step:before{content:"";position:absolute;inset:0 0 auto 0;height:102px;background:linear-gradient(180deg,rgba(4,26,51,.15),rgba(4,26,51,.97)),url("https://images.pexels.com/photos/27508769/pexels-photo-27508769.jpeg?auto=compress&cs=tinysrgb&w=800");background-size:cover;background-position:center;z-index:-1;opacity:.92}
+body.carrier-hub-2026 .carrier-step:nth-child(2):before{background-image:linear-gradient(180deg,rgba(4,26,51,.20),rgba(4,26,51,.98)),url("https://images.unsplash.com/photo-1714650601435-67a4d51a0798?auto=format&fit=crop&w=800&q=80")}
+body.carrier-hub-2026 .carrier-step:nth-child(3):before{background-image:linear-gradient(180deg,rgba(4,26,51,.20),rgba(4,26,51,.98)),url("https://images.pexels.com/photos/27099096/pexels-photo-27099096.jpeg?auto=compress&cs=tinysrgb&w=800")}
+body.carrier-hub-2026 .carrier-step:nth-child(4):before{background-image:linear-gradient(180deg,rgba(4,26,51,.22),rgba(4,26,51,.98)),url("https://images.pexels.com/photos/27508769/pexels-photo-27508769.jpeg?auto=compress&cs=tinysrgb&w=800")}
+body.carrier-hub-2026 .carrier-step-top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:34px}
+body.carrier-hub-2026 .carrier-step-icon{display:grid;place-items:center;width:53px;height:53px;background:rgba(1,15,31,.62);border:1px solid rgba(144,206,255,.6);border-radius:14px;color:#d9efff}
+body.carrier-hub-2026 .carrier-step-icon svg{width:32px;height:32px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.15}
+body.carrier-hub-2026 .carrier-step b{width:auto;height:auto;min-width:0;margin:0;border-radius:0;background:none;color:#78caff;font-size:30px;font-weight:900;letter-spacing:-.04em}
+body.carrier-hub-2026 .carrier-step strong{color:#fff;font-size:19px;line-height:1.22;margin:0 0 10px}
+body.carrier-hub-2026 .carrier-step p{font-size:13px;line-height:1.6;color:#d5e7f5;margin:0 0 17px}
+body.carrier-hub-2026 .carrier-step-bottom{margin-top:auto;padding-top:13px;border-top:1px solid rgba(191,229,255,.28);font-size:11px;color:#8dd2ff;font-weight:800}
+body.carrier-hub-2026 .carrier-workflow-note{max-width:880px;margin:23px auto 0;text-align:center;font-size:12px;line-height:1.5;color:#bdd9ee}
+body.carrier-hub-2026 .carrier-workflow-note strong{color:#fff}
+body.carrier-hub-2026 .carrier-detail-section{background:#f1f7fc!important}
+body.carrier-hub-2026 .carrier-detail-section .section-head{max-width:850px}
+body.carrier-hub-2026 .carrier-detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px}
+body.carrier-hub-2026 .carrier-detail-grid .phase3-card{min-width:0;overflow:hidden;padding:0 26px 27px;border:1px solid #cee1f0;border-radius:17px;background:#fff;box-shadow:0 12px 27px rgba(9,46,85,.09)}
+body.carrier-hub-2026 .carrier-detail-grid .phase3-card:before{content:"";display:block;height:143px;margin:0 -26px 24px;background-size:cover;background-position:center;background-image:linear-gradient(0deg,rgba(0,24,45,.42),transparent 70%),url("https://images.pexels.com/photos/27099096/pexels-photo-27099096.jpeg?auto=compress&cs=tinysrgb&w=850")}
+body.carrier-hub-2026 .carrier-detail-grid .phase3-card:nth-child(2):before{background-image:linear-gradient(0deg,rgba(0,24,45,.42),transparent 70%),url("https://images.pexels.com/photos/27508769/pexels-photo-27508769.jpeg?auto=compress&cs=tinysrgb&w=850")}
+body.carrier-hub-2026 .carrier-detail-grid .phase3-card:nth-child(3):before{background-image:linear-gradient(0deg,rgba(0,24,45,.42),transparent 70%),url("https://images.unsplash.com/photo-1714650601435-67a4d51a0798?auto=format&fit=crop&w=850&q=80")}
+body.carrier-hub-2026 .carrier-detail-grid .phase3-badge{display:inline-flex;font-size:10px;font-weight:900;letter-spacing:.13em;color:#0a7ae6}
+body.carrier-hub-2026 .carrier-detail-grid h3{margin:12px 0 14px;font-size:22px;letter-spacing:-.026em;line-height:1.18;color:#0b2a48}
+body.carrier-hub-2026 .carrier-detail-grid ul{padding-left:17px;margin:0}
+body.carrier-hub-2026 .carrier-detail-grid li{font-size:13px;line-height:1.65;color:#526c82;padding:2px 0}
+body.carrier-hub-2026 .carrier-detail-grid p{font-size:14px;line-height:1.7;color:#526c82}
+body.carrier-hub-2026 .carrier-application{background:linear-gradient(180deg,#fff,#eef5fb);padding:70px 0}
+body.carrier-hub-2026 .carrier-application .two-col{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);align-items:start;gap:32px}
+body.carrier-hub-2026 .carrier-application .section-head{position:sticky;top:155px}
+body.carrier-hub-2026 .carrier-application .section-head h2{font-size:clamp(30px,3.2vw,45px);color:#072a49}
+body.carrier-hub-2026 .carrier-readiness{border:1px solid #c3e0f5;border-radius:15px;background:#fff;padding:22px;box-shadow:0 10px 25px rgba(7,38,73,.06)}
+body.carrier-hub-2026 .carrier-readiness strong{color:#123b5a}
+body.carrier-hub-2026 .carrier-readiness-bar{height:10px;margin-top:14px}
+body.carrier-hub-2026 .carrier-readiness-bar i{background:linear-gradient(90deg,#0673e4,#54c3ff)}
+body.carrier-hub-2026 #carrierInterestForm{position:relative;scroll-margin-top:155px;border:1px solid #d2e2f0;border-top:5px solid #087aff;border-radius:18px;padding:30px 28px;box-shadow:0 19px 42px rgba(8,40,74,.11)}
+body.carrier-hub-2026 #carrierInterestForm label{color:#254c6a;font-size:12px;font-weight:750}
+body.carrier-hub-2026 #carrierInterestForm input,body.carrier-hub-2026 #carrierInterestForm select,body.carrier-hub-2026 #carrierInterestForm textarea{min-height:44px;border-radius:9px;color:#0a2844;border-color:#bdd2e4;font-size:14px}
+body.carrier-hub-2026 #carrierInterestForm textarea{min-height:91px}
+body.carrier-hub-2026 #carrierInterestForm button[type=submit]{font-size:14px;padding:14px 18px;min-height:49px;width:100%}
+body.carrier-hub-2026 .carrier-bottom-cta .interior-bottom-actions a:first-child{background:#087cf1}
+body.carrier-hub-2026 .carrier-bottom-cta .interior-bottom-actions a:last-child{border-color:#d5eaff}
+@media(max-width:1100px){
+ body.carrier-hub-2026 .carrier-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.carrier-hub-2026 .carrier-detail-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.carrier-hub-2026 .carrier-application .two-col{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
+}
+@media(max-width:850px){
+ body.carrier-hub-2026 .carrier-spotlight-grid{grid-template-columns:1fr}
+ body.carrier-hub-2026 .carrier-spotlight-photo{min-height:310px}
+ body.carrier-hub-2026 .carrier-application .two-col{grid-template-columns:1fr}
+ body.carrier-hub-2026 .carrier-application .section-head{position:static}
+ body.carrier-hub-2026 .carrier-section-nav-inner{flex-wrap:nowrap}
+ body.carrier-hub-2026 .carrier-section-nav strong{display:none}
+}
+@media(max-width:600px){
+ body.carrier-hub-2026 .phase3-hero{min-height:0;padding:42px 0 36px;background-position:58% center}
+ body.carrier-hub-2026 .interior-hero-copy h1{font-size:36px}
+ body.carrier-hub-2026 .carrier-section-nav{top:70px}
+ body.carrier-hub-2026 .carrier-section-nav-inner{width:100%;padding-inline:12px}
+ body.carrier-hub-2026 .carrier-section-links{gap:2px;scrollbar-width:none}
+ body.carrier-hub-2026 .carrier-section-links a{padding:9px 10px}
+ body.carrier-hub-2026 .carrier-spotlight{padding:38px 0}
+ body.carrier-hub-2026 .carrier-spotlight-photo{min-height:240px}
+ body.carrier-hub-2026 .carrier-spotlight-copy h2{font-size:31px}
+ body.carrier-hub-2026 .carrier-steps,body.carrier-hub-2026 .carrier-detail-grid{grid-template-columns:1fr}
+ body.carrier-hub-2026 .carrier-step{min-height:265px}
+ body.carrier-hub-2026 .carrier-workflow{padding:48px 0}
+ body.carrier-hub-2026 .carrier-application{padding:46px 0}
+ body.carrier-hub-2026 #carrierInterestForm{padding:22px 16px}
+ body.carrier-hub-2026 .carrier-detail-grid .phase3-card:before{height:170px}
+ body.carrier-hub-2026 #carrier-how,body.carrier-hub-2026 #carrier-capabilities,body.carrier-hub-2026 #setup{scroll-margin-top:134px}
+}
