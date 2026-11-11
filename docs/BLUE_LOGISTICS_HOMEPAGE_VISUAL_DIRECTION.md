@@ -45,3 +45,26 @@ All interior public pages should show a compact consistent main navigation above
 
 ## Owner feedback: approved foundation, continue refining (November 10, 2026)
 The owner confirmed the redesigned Blue Logistics public site, including the photo-led homepage, coordinated service-page styling and upgraded Carrier Hub, **looks good** and should remain the approved visual baseline. The owner also explicitly wants further improvements over time. Preserve the overall dark navy/cobalt/cyan brand, prominent trucking imagery, visible desktop navigation, realistic service detail and clear quote/profile CTAs. Prioritize incremental refinement rather than replacing the approved design: improve mobile responsiveness and legibility, authentic photography and image loading, whitespace and information density, page-specific value propositions, accessibility, load performance, live form reliability, and consistent navigation. Do not introduce fabricated testimonials, unsupported claims, or jeopardize working quote, carrier-intake, or portal systems. Keep the homepage's approved look and iterate carefully.
+
+## Resources page visual rule — approved November 10–11, 2026
+
+All public Blue Logistics pages must use relevant, high-quality, non-repetitive visual content. Resource cards must have unique, subject-specific photographs. Preserve the approved navy/cobalt design system, visible desktop navigation, responsive layouts, and functional customer tools. Continue improving existing designs rather than rebuilding working pages.
+
+The owner approved an image showing a compact cinematic Freight Resources banner and a 3-column gallery of **different** images. The page implementation is `resources.html` plus `resources-redesign.css`. Preserve the already approved `index.html`, carrier intake, customer portal, and quote logic. Desktop / tablet / mobile cards must use 3 / 2 / 1 columns. Cards should have accessible descriptions, lazy-loaded 480/800/1200px responsive images, distinct alt text and clear working destinations.
+
+Original resource destinations were preserved: Smart Freight Tools → `freight-tools.html`; Freight Quote Checklist → `freight-quote-checklist.html`; BOL Checklist → `bol-checklist.html`. The other four former non-linked resource cards now link to substantive in-page quick reference guides anchored at `#guide-equipment`, `#guide-ltl`, `#guide-accessorial` and `#guide-import` respectively. Update these guides carefully rather than using placeholder routes.
+
+### Resources image provenance and licensing
+The images are Pexels contributors' photos and are used under [Pexels' license](https://www.pexels.com/license/) (commercial website use allowed without required attribution). Use these source image pages to review/relicense if needed; do not claim they depict Blue Logistics personnel, equipment or software. The current implementation uses responsive `images.pexels.com` URLs rather than storing the image binaries in the repository. Verify external CDN availability as part of future QA.
+
+| Resource | Pexels photo ID | Photo source | What the photo actually depicts |
+|---|---:|---|---|
+| Smart Freight Tools | 12969403 | https://www.pexels.com/photo/close-up-shot-of-a-laptop-computer-12969403/ | Laptop analytics dashboard (illustrative; not Blue Logistics software) |
+| Freight Quote Checklist | 6169136 | https://www.pexels.com/photo/person-writing-down-on-a-document-6169136/ | Shipment paperwork and clipboard |
+| Bill of Lading Checklist | 6169133 | https://www.pexels.com/photo/close-up-photo-of-documents-on-a-clipboard-6169133/ | Delivery paperwork on clipboard |
+| Equipment Guide | 27099094 | https://www.pexels.com/photo/view-of-parked-trucks-27099094/ | Parked refrigerated trailers |
+| LTL Basics | 34585120 | https://www.pexels.com/photo/forklift-operators-loading-pallets-on-truck-34585120/ | Pallet handling/loading |
+| Accessorial Glossary | 4487382 | https://www.pexels.com/photo/worker-on-a-construction-4487382/ | Pallet jack operator |
+| Import Handoff Guide | 1544372 | https://www.pexels.com/photo/blue-and-red-cargo-ship-with-crane-1544372/ | Marine cargo equipment |
+
+Keep all seven resource photographs unique. Avoid invented statistics, customer endorsements or false claims that generic stock assets are our own company vehicles. Replace any photograph if the CDN stops serving it or if the subject does not match its use.
