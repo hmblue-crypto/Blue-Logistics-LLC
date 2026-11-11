@@ -70,3 +70,22 @@ The images are Pexels contributors' photos and are used under [Pexels' license](
 Keep all seven resource photographs unique. Avoid invented statistics, customer endorsements or false claims that generic stock assets are our own company vehicles. Replace any photograph if the CDN stops serving it or if the subject does not match its use.
 
 The Resources banner uses the Pexels photograph `27099096` (Tom Jackson; https://www.pexels.com/photo/photo-of-a-truck-driving-on-the-road-27099096/) framed to keep the blue truck visible, rather than a photo that prominently displays another carrier's wordmark. Treat it as illustrative stock photography, not a Blue Logistics truck.
+
+## November 10, 2026 late evening — owner approves the current site appearance
+
+Owner: "Other than that it looks perfect, save everything to memory." The approved public website is the existing visual foundation: **navy + cobalt + cyan, clear white navigation with desktop tabs, cinematic freight/industry photography, strong readable headings, efficient whitespace, credible brokerage wording, and distinct relevant photos per content card.** Keep the homepage, Resources page and Carrier Hub upgrades as the baseline. Apply further changes incrementally and preserve existing link destinations, quote intake, carrier verification, private Sales OS and customer portal. Never regress to repeated placeholder photos or unnecessarily collapse the desktop navigation.
+
+### Domestic Freight mode cards — unique photo requirement
+
+Owner's screenshot showed all six Domestic Freight mode cards displaying the **same blue tractor-trailer photo**. This is not approved. The production fix uses `domestic-photo-cards.css` and six distinct, relevant Pexels images with responsive image sizes, lazy loading, descriptive alt text and a 3/2/1-column layout. Photography represents the *type of service*, not trucks owned/operated by Blue Logistics. Photos are licensed under [Pexels License](https://www.pexels.com/license/); do not imply third-party endorsement.
+
+| Card | Photo | Photographer/source |
+|---|---|---|
+| Full Truckload (FTL) | Red tractor-trailer hauling a dry van on a highway | Tom Jackson, [Pexels 27099095](https://www.pexels.com/photo/kenworth-t680-semi-trailer-truck-driving-down-the-road-27099095/) |
+| LTL | Forklift moving palletized freight into a truck | Caleb Oquendo, [Pexels 34585120](https://www.pexels.com/photo/forklift-operators-loading-pallets-on-truck-34585120/) |
+| Partial Truckload | Aerial loading docks with multiple freight vehicles | Giant Asparagus, [Pexels 35501715](https://www.pexels.com/photo/aerial-view-of-industrial-loading-dock-area-35501715/) |
+| Flatbed / Specialty | Red truck carrying a long steel beam on an open deck | Giridharan Rajenthara, [Pexels 36556568](https://www.pexels.com/photo/red-truck-transporting-large-steel-beam-in-motion-36556568/) |
+| Temperature Controlled | Multiple refrigerated freight trailers | Tom Jackson, [Pexels 27099094](https://www.pexels.com/photo/view-of-parked-trucks-27099094/) |
+| Expedited / Sprinter | Unmarked white commercial delivery van | Norma Mortenson, [Pexels 4391469](https://www.pexels.com/photo/a-gray-van-parked-beside-the-white-concrete-building-4391469/) |
+
+Continue improving verified photo quality, cropping, mobile readability, visual hierarchy, page-specific substance, accessibility and site performance while protecting functional tools. Future iterations should not needlessly rebuild a design the owner already approves. The design rule is durable in this repository and not dependent on any single conversation.
