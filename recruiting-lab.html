@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Recruit Studio | Fictional Agency ATS + CRM Demo</title>
+<meta name="description" content="Private concept demonstration of a recruiting agency ATS and CRM. All candidate, client, job and revenue data is fictional.">
+<link rel="stylesheet" href="recruiting-lab.css">
+<script defer src="recruiting-lab.js"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Product navigation">
+    <a class="wordmark" href="#dashboard" aria-label="Recruit Studio dashboard"><span class="logo-box">R<span>✳</span></span><span>RECRUIT <b>STUDIO</b><small>AGENCY WORKSPACE · CONCEPT</small></span></a>
+    <div class="demo-label"><span class="signal"></span> DEMO ONLY · FICTIONAL DATA</div>
+    <p class="nav-heading">WORKSPACE</p>
+    <nav id="sideNav">
+      <button class="nav-item active" data-view="dashboard" type="button"><span>◫</span> Overview</button>
+      <button class="nav-item" data-view="jobs" type="button"><span>▣</span> Job orders</button>
+      <button class="nav-item" data-view="candidates" type="button"><span>♙</span> Candidates</button>
+      <button class="nav-item" data-view="clients" type="button"><span>▤</span> Clients</button>
+      <button class="nav-item" data-view="revenue" type="button"><span>↗</span> Placement revenue</button>
+      <button class="nav-item" data-view="pricing" type="button"><span>◇</span> Pricing concept</button>
+    </nav>
+    <div class="side-bottom"><div class="mini-icon">ⓘ</div><p><b>Not connected to a real ATS.</b><br>Nothing sends, bills, or saves to a server. Refresh resets this demo.</p><button id="resetDemo" class="reset-btn" type="button">↻ Reset fictional data</button></div>
+  </aside>
+
+  <main class="main-panel">
+    <header class="topbar"><div class="breadcrumb"><span>RECRUIT STUDIO</span><span class="crumb-chevron">/</span><strong id="breadcrumbLabel">Overview</strong></div><div class="topbar-actions"><label class="scenario-control">Demo scenario <select id="scenarioSelect"><option value="general">Boutique agency</option><option value="healthcare">Healthcare desk</option><option value="technology">Technology desk</option></select></label><span class="avatar" aria-label="Fictional demo user">DEMO</span></div></header>
+    <div class="workspace">
+      <div class="warning-strip"><span>◆</span><div><strong>Product concept — sandbox preview</strong><p>Every person, company, opening, fee and activity shown here is invented. Do not enter real candidate information. This is not a live job board or hiring service.</p></div></div>
+
+      <section id="dashboard" class="view active" aria-labelledby="dashboardTitle">
+        <div class="page-head"><div><div class="eyebrow">AGENCY COMMAND CENTER</div><h1 id="dashboardTitle">Your recruiting desk, organized.</h1><p>Track the whole recruiting cycle, from client relationships to confirmed placements.</p></div><div class="head-actions"><button class="btn secondary" id="exportDemo" type="button">Export sample CSV</button><button class="btn primary" data-open="candidate" type="button">＋ Add sample candidate</button></div></div>
+        <div id="kpiGrid" class="kpi-grid"></div>
+        <div class="dashboard-grid"><div class="surface"><div class="surface-title"><div><span class="mini-label">PIPELINE SNAPSHOT</span><h2>Candidate flow</h2></div><button class="text-button" data-goto="candidates" type="button">See pipeline →</button></div><div id="funnelRows"></div></div><div class="surface"><div class="surface-title"><div><span class="mini-label">RECRUITER PRIORITIES</span><h2>Activity & next steps</h2></div></div><div id="activityList"></div></div></div>
+        <div class="surface full-width"><div class="surface-title"><div><span class="mini-label">ACTIVE SEARCHES</span><h2>Open job orders</h2></div><button class="text-button" data-goto="jobs" type="button">Manage jobs →</button></div><div id="overviewJobs"></div></div>
+      </section>
+
+      <section id="jobs" class="view" aria-labelledby="jobsTitle"><div class="page-head"><div><div class="eyebrow">CLIENT DEMAND</div><h1 id="jobsTitle">Job orders</h1><p>Fill open roles, see fee potential, and link candidates to the correct requisition.</p></div><button class="btn primary" data-open="job" type="button">＋ Create sample job</button></div><div id="jobsGrid" class="job-grid"></div></section>
+
+      <section id="candidates" class="view" aria-labelledby="candidatesTitle"><div class="page-head"><div><div class="eyebrow">TALENT TRACKING</div><h1 id="candidatesTitle">Candidate pipeline</h1><p>Move sample candidates through the actual recruiting workflow. Every action stays in this tab.</p></div><button class="btn primary" data-open="candidate" type="button">＋ Add sample candidate</button></div><div class="filter-bar"><label>Search fictional candidates<input id="candidateSearch" type="search" placeholder="Name, job, or city"></label><label>Job order<select id="jobFilter"></select></label></div><div class="pipeline" id="candidateBoard"></div></section>
+
+      <section id="clients" class="view" aria-labelledby="clientsTitle"><div class="page-head"><div><div class="eyebrow">BUSINESS DEVELOPMENT</div><h1 id="clientsTitle">Client accounts</h1><p>One place for employer relationships, requisitions, and potential placement fees.</p></div></div><div class="surface"><div id="clientsTable" class="table-wrap"></div></div></section>
+
+      <section id="revenue" class="view" aria-labelledby="revenueTitle"><div class="page-head"><div><div class="eyebrow">DESK ECONOMICS</div><h1 id="revenueTitle">Placement revenue</h1><p>Model permanent-placement fees and monitor potential versus simulated placements.</p></div></div><div id="revenueCards" class="kpi-grid"></div><div class="surface"><div class="surface-title"><div><span class="mini-label">ILLUSTRATIVE FINANCIAL VIEW</span><h2>Opportunity by job</h2></div></div><div id="revenueTable" class="table-wrap"></div></div><p class="footnote">Projected fees are hypothetical salary × agreed-fee percentage. No invoice, contract, actual placement or money has been generated.</p></section>
+
+      <section id="pricing" class="view" aria-labelledby="pricingTitle"><div class="page-head"><div><div class="eyebrow">GO-TO-MARKET EXPLORATION</div><h1 id="pricingTitle">Subscription pricing ideas</h1><p>Potential business models to validate with recruiting firms. Plans below are not for sale.</p></div></div><div class="pricing-grid"><article class="price-card"><div class="plan">SOLO RECRUITER</div><div class="price">$39 <small>/ seat / mo</small></div><p>Candidate and client CRM, pipeline tracking, job orders, and simple reporting.</p><ul><li>1 seat</li><li>Core candidate workflow</li><li>CSV export</li></ul><span class="unavailable">Proposed pilot price</span></article><article class="price-card featured"><div class="plan">BOUTIQUE TEAM</div><div class="price">$89 <small>/ seat / mo</small></div><p>Multi-recruiter workflows, linked placement economics, notes and collaboration.</p><ul><li>Team roles (planned)</li><li>Email/calendar sync (planned)</li><li>Automations (planned)</li></ul><span class="unavailable">Proposed pilot price</span></article><article class="price-card"><div class="plan">AGENCY PLUS</div><div class="price">Custom</div><p>Private agency workspace, onboarding, controlled data imports and support.</p><ul><li>Private tenant (planned)</li><li>Admin permissions (planned)</li><li>Compliance & support (planned)</li></ul><span class="unavailable">Not available yet</span></article></div><div class="surface full-width"><h2>What we would validate before selling</h2><p>Interview agency owners, confirm data portability and workflow needs, test security and agency isolation, set up privacy/compliance policies, prove backups and exports, build real billing, and only then accept paying customers.</p></div></section>
+      <footer>RECRUIT STUDIO · ORIGINAL CONCEPT UI · NOT AFFILIATED WITH TOP ECHELON · DEMONSTRATION ONLY</footer>
+    </div>
+  </main>
+</div>
+
+<dialog id="candidateDialog"><form method="dialog" id="candidateForm" class="modal-form"><div class="modal-heading"><div><div class="eyebrow">FICTIONAL DEMO RECORD</div><h2>Add sample candidate</h2></div><button type="button" class="modal-close" data-close>✕</button></div><p>Please use invented names only. No applicant data is transmitted or retained after refresh.</p><label>Candidate name<input name="name" required maxlength="70" placeholder="e.g. Taylor Example"></label><label>Location<input name="location" required maxlength="70" placeholder="e.g. Raleigh, NC"></label><label>Linked job order<select name="jobId" id="candidateJobSelect" required></select></label><label>Stage<select name="stage" id="newCandidateStage"><option>Sourced</option><option>Screened</option><option>Submitted</option><option>Interview</option><option>Offer</option></select></label><div class="modal-actions"><button class="btn secondary" type="button" data-close>Cancel</button><button class="btn primary" type="submit">Save sample candidate</button></div></form></dialog>
+
+<dialog id="jobDialog"><form method="dialog" id="jobForm" class="modal-form"><div class="modal-heading"><div><div class="eyebrow">FICTIONAL DEMO RECORD</div><h2>Create sample job</h2></div><button type="button" class="modal-close" data-close>✕</button></div><p>Use an invented requisition, never a real client's confidential position.</p><label>Job title<input name="title" required maxlength="90" placeholder="e.g. Operations Analyst"></label><label>Fictional client<select name="clientId" id="newJobClient" required></select></label><label>Location<input name="location" required maxlength="70" placeholder="e.g. Austin, TX"></label><div class="form-split"><label>Salary (USD)<input name="salary" type="number" min="20000" max="500000" value="85000" required></label><label>Placement fee %<input name="fee" type="number" min="1" max="40" step="0.5" value="20" required></label></div><div class="modal-actions"><button class="btn secondary" type="button" data-close>Cancel</button><button class="btn primary" type="submit">Create sample job</button></div></form></dialog>
+</body></html>
