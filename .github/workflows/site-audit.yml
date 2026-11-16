@@ -1,0 +1,32 @@
+name: Public site safety audit
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '*.html'
+      - '*.css'
+      - '*.js'
+      - 'vercel.json'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'tests/**'
+      - '.github/workflows/site-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  static-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Validate site files, links, sitemap and quote/portal boundaries
+        run: node tests/site-audit.cjs
+      - name: JavaScript syntax
+        run: |
+          node --check site.js
+          node --check quote-enhance.js
+          node --check returning-customer.js
+          node --check portal.js
+          node --check tests/site-audit.cjs
