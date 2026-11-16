@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /portal.html
+Disallow: /owner-os6.html
+Disallow: /owner-os7.html
+Disallow: /404.html
 
 Sitemap: https://www.shipbluelogistics.com/sitemap.xml

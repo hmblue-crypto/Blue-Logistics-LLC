@@ -2,17 +2,19 @@
  const form=document.getElementById('quoteForm');
  const safeParse=(v)=>{try{return JSON.parse(v)}catch{return null}};
  const lastKey='blue_last_successful_lane_v1',pendingKey='blue_pending_lane_v1';
- const laneFields=['pickup_location','delivery_location','service','weight','commodity','pallet_count','equipment_type','shipment_details','company','first_name','last_name','email','phone'];
+ // Remember only a limited lane template; never persist names, emails, phones, company or shipment notes.
+ const laneFields=['pickup_location','delivery_location','service','weight','pallet_count','equipment_type'];
+ const redactSaved=(value)=>{if(!value||typeof value!=='object'||Array.isArray(value))return null;return Object.fromEntries(laneFields.filter(name=>typeof value[name]==='string'&&value[name].trim()).map(name=>[name,value[name].trim().slice(0,150)]))};
  const readForm=()=>{if(!form)return{};const out={};for(const name of laneFields){const el=form.elements.namedItem(name);if(el&&'value'in el&&String(el.value||'').trim())out[name]=String(el.value).trim()}return out};
  const fillForm=(data)=>{if(!form||!data)return;Object.entries(data).forEach(([name,value])=>{const el=form.elements.namedItem(name);if(el&&'value'in el&&name!=='pickup_date')el.value=value});const date=form.elements.namedItem('pickup_date');if(date&&'value'in date)date.value='';form.dispatchEvent(new Event('input',{bubbles:true}));form.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>form.querySelector('[name="pickup_date"]')?.focus(),450)};
  if(form){
-  form.addEventListener('submit',()=>{try{localStorage.setItem(pendingKey,JSON.stringify(readForm()))}catch{}},true);
-  const status=document.getElementById('quoteStatus');if(status){new MutationObserver(()=>{if(/quote request received/i.test(status.textContent||'')){try{const p=localStorage.getItem(pendingKey);if(p)localStorage.setItem(lastKey,p);localStorage.removeItem(pendingKey)}catch{};refreshRepeat()}}).observe(status,{childList:true,subtree:true,characterData:true})}
+  form.addEventListener('submit',()=>{try{sessionStorage.setItem(pendingKey,JSON.stringify(readForm()));localStorage.removeItem(pendingKey)}catch{}},true);
+  const status=document.getElementById('quoteStatus');if(status){new MutationObserver(()=>{if(/quote request received/i.test(status.textContent||'')){try{const p=sessionStorage.getItem(pendingKey);if(p)localStorage.setItem(lastKey,JSON.stringify(redactSaved(safeParse(p))||{}));sessionStorage.removeItem(pendingKey);localStorage.removeItem(pendingKey)}catch{};refreshRepeat()}}).observe(status,{childList:true,subtree:true,characterData:true})}
  }
  let repeatCard=null;
  function refreshRepeat(){
   let saved=null;
-  try{saved=safeParse(localStorage.getItem(lastKey)||'')}catch{}
+  try{const previous=safeParse(localStorage.getItem(lastKey)||'');saved=redactSaved(previous);if(previous&&saved&&JSON.stringify(previous)!==JSON.stringify(saved))localStorage.setItem(lastKey,JSON.stringify(saved));localStorage.removeItem(pendingKey)}catch{}
   if(!form||!saved||typeof saved!=='object'||Array.isArray(saved)){repeatCard?.remove();repeatCard=null;return}
   const origin=typeof saved.pickup_location==='string'?saved.pickup_location.trim():'';
   const destination=typeof saved.delivery_location==='string'?saved.delivery_location.trim():'';

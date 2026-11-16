@@ -1,0 +1,43 @@
+name: Freight service pages browser QA
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'service-detail.css'
+      - '*truckload.html'
+      - 'refrigerated-freight.html'
+      - 'flatbed-specialized.html'
+      - 'expedited-freight.html'
+      - 'drayage.html'
+      - 'north-carolina-freight-broker.html'
+      - 'tests/service-pages.cjs'
+      - '.github/workflows/service-pages-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  service-pages-qa:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+      - name: Install isolated browser test dependency
+        run: npm install --no-save --ignore-scripts playwright@1.58.2
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Test 8 landing pages at 4 screen widths
+        run: node tests/service-pages.cjs
+      - name: Save service-page comparison screenshots
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: freight-service-visual-qa
+          path: .service-qa/*.png
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 7
