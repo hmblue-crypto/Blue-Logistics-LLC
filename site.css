@@ -174,3 +174,9 @@ footer a:hover{color:#fff}
   .cta-grid{display:block}.cta-grid .btn{margin-top:18px}
   .footer-grid{grid-template-columns:1fr}.pagehero h1{font-size:44px}
 }
+
+/* Progressive keyboard access: no redesign of approved public layouts. */
+.skip-to-content{position:fixed;left:12px;top:8px;z-index:1000;padding:11px 16px;background:#fff;color:#03101f;border:2px solid #087ff5;border-radius:8px;font-weight:700;transform:translateY(-160%);transition:transform .1s ease}
+.skip-to-content:focus{transform:translateY(0)}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid #087ff5;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
