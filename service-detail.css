@@ -1,0 +1,24 @@
+.service-detail-page{background:#fff}.service-detail-page header{position:sticky}
+.detail-nav{display:flex;gap:1.25rem;align-items:center;font-size:.875rem;font-weight:700}.detail-nav>a:not(.btn):hover{color:#70bafa}
+.detail-hero{background:radial-gradient(circle at 85% 15%,#0d4772,#061a2c 55%,#02101f);color:#fff;padding:3.7rem 0 4.25rem}
+.detail-hero-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(260px,.55fr);gap:clamp(2rem,6vw,5rem);align-items:center}
+.breadcrumbs{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;color:#b4cede;font-size:.85rem;margin-bottom:2rem}.breadcrumbs a{text-decoration:underline;text-underline-offset:3px}
+.detail-hero .eyebrow{font-size:.78rem;color:#66c1fc;font-weight:800;text-transform:uppercase;letter-spacing:.13em}.detail-hero h1{font-size:clamp(2.8rem,6vw,5rem);line-height:1.04;letter-spacing:-.045em;max-width:850px;margin:1rem 0}
+.detail-hero p.detail-intro{font-size:clamp(1.04rem,1.55vw,1.22rem);line-height:1.65;max-width:760px;color:#d0e0ed}
+.detail-buttons{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2rem}
+.btn.detail-secondary{border:1px solid #94b9d3;color:white;background:transparent}
+.detail-hero-panel{padding:2rem;border:1px solid #355c79;border-radius:18px;background:#071e34;box-shadow:0 14px 36px #0003}
+.detail-hero-panel strong{font-size:1.2rem}.detail-hero-panel p{line-height:1.65;color:#d0dce5}.detail-label{color:#a7cee7;font-size:.8rem;font-weight:700}
+.detail-section{padding:clamp(3rem,7vw,5.5rem) 0}.detail-section h2{font-size:clamp(1.75rem,3vw,2.6rem);letter-spacing:-.025em;line-height:1.16;margin:.8rem 0 1.2rem}
+.detail-columns{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:start}.detail-columns p{line-height:1.75;max-width:570px;color:#465f76}
+.detail-overline{color:#0872ce;text-transform:uppercase;letter-spacing:.14em;font-size:.77rem;font-weight:800}
+.detail-checks,.detail-list{padding:0;list-style:none;display:grid;gap:1rem;line-height:1.55;margin:1.5rem 0}.detail-checks li{padding-left:2rem;position:relative}.detail-checks li:before{content:'✓';position:absolute;left:0;top:0;color:#087ff5;font-weight:900}.detail-list{list-style:decimal;padding-left:1.35rem}
+.detail-info{background:#f1f7fd;border:1px solid #d6e6f5;border-radius:18px;padding:clamp(1.4rem,4vw,2.5rem)}
+.detail-text-link{display:inline-block;color:#0068bb;font-weight:800;text-decoration:underline;text-underline-offset:4px}
+.detail-faq{background:#f5f9fc}.detail-faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.detail-faq details{padding:1.35rem;background:#fff;border:1px solid #d9e4ed;border-radius:12px}
+.detail-faq summary{font-weight:800;cursor:pointer;color:#102b45}.detail-faq details p{color:#53687c;line-height:1.7}.detail-service-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}.detail-service-grid a{padding:1.35rem;border-radius:12px;border:1px solid #d5e1ec;background:white;display:grid;gap:.9rem}.detail-service-grid a:hover,.detail-service-grid a:focus-visible{border-color:#087ff5;box-shadow:0 8px 24px #153e6718}.detail-service-grid span{color:#0068bb;font-size:.85rem;font-weight:700}
+.detail-last-cta{background:#06213c;color:#fff;text-align:center;padding:3.5rem 0}.detail-last-cta h2{font-size:clamp(1.9rem,4vw,3rem)}.detail-last-cta p{color:#d5e1ea;margin:1rem auto 2rem;max-width:620px;line-height:1.65}
+.detail-footer{background:#020d19;color:#c5d7e5;font-size:.82rem;padding:1.7rem 0}.detail-footer .container{display:flex;gap:1rem;justify-content:space-between;flex-wrap:wrap}
+@media(max-width:1050px){.detail-nav{gap:.7rem}.detail-nav a{font-size:.77rem}.detail-service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.service-detail-page .nav{min-height:75px;flex-wrap:wrap;padding:.65rem 0}.service-detail-page .brand strong{font-size:18px}.service-detail-page .brand img{width:48px;height:48px}.detail-nav{width:100%;justify-content:space-between;overflow:auto;padding:.35rem 0}.detail-nav a{white-space:nowrap}.detail-hero-grid,.detail-columns,.detail-faq-grid{grid-template-columns:1fr}.detail-hero{padding:2.2rem 0 3rem}.breadcrumbs{margin-bottom:1.4rem}}
+@media(max-width:420px){.detail-nav{gap:1rem}.detail-service-grid{grid-template-columns:1fr}.detail-hero-panel{padding:1.5rem}.detail-hero h1{font-size:2.6rem}}
