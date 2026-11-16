@@ -180,3 +180,8 @@ footer a:hover{color:#fff}
 .skip-to-content:focus{transform:translateY(0)}
 :where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid #087ff5;outline-offset:3px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* Related service guides are distinct from photographic freight-mode cards. */
+.service-guide-card{display:block;padding:1.45rem;border:1px solid #d6e2ec;border-radius:14px;background:#fff;color:#0d2138;box-shadow:0 4px 16px rgba(0,35,70,.05)}
+.service-guide-card h3{margin:0 0 .55rem;font-size:1.18rem}.service-guide-card p{margin:0;color:#52708a;line-height:1.55}
+.service-guide-card:hover,.service-guide-card:focus-visible{border-color:#087ff5;box-shadow:0 12px 30px rgba(8,127,245,.12)}
