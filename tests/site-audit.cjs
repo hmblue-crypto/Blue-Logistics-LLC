@@ -2,7 +2,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),errors=[],warnings=[],notes=[];
-const publicPaths=['index.html','domestic-freight.html','import-export.html','warehousing.html','nationwide.html','industries.html','industry-manufacturing.html','industry-construction.html','industry-paper-packaging.html','industry-retail-distribution.html','industry-food-beverage.html','industry-importers.html','resources.html','freight-tools.html','freight-quote-checklist.html','bol-checklist.html','carriers.html','about.html','contact.html'];
+const publicPaths=['index.html','domestic-freight.html','import-export.html','warehousing.html','nationwide.html','industries.html','industry-manufacturing.html','industry-construction.html','industry-paper-packaging.html','industry-retail-distribution.html','industry-food-beverage.html','industry-importers.html','resources.html','freight-tools.html','freight-quote-checklist.html','bol-checklist.html','carriers.html','about.html','contact.html','full-truckload.html','less-than-truckload.html','partial-truckload.html','refrigerated-freight.html','flatbed-specialized.html','expedited-freight.html','drayage.html','north-carolina-freight-broker.html'];
 const exists=p=>fs.existsSync(path.join(root,p))&&fs.statSync(path.join(root,p)).isFile();
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const bad=(message)=>errors.push(message),warn=(message)=>warnings.push(message);
