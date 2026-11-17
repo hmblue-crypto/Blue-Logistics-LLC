@@ -70,6 +70,60 @@ async function sendOwnerPush(admin: any, quote: any) {
   } catch (err) { console.error("website quote push failed", err); return { sent: 0 }; }
 }
 
+
+function emailEscape(value: unknown) {
+  const entities: Record<string,string> = {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"};
+  return String(value ?? "").replace(/[&<>"']/g, c => entities[c] ?? c);
+}
+function alertHtml(quote: any){
+  const fields: [string,unknown][] = [
+    ["Customer", [quote.first_name,quote.last_name].filter(Boolean).join(" ")],
+    ["Company",quote.company],["Customer email",quote.email],["Phone",quote.phone],
+    ["Origin",quote.pickup_location],["Destination",quote.delivery_location],
+    ["Pickup date",quote.pickup_date],["Service",quote.service],["Commodity",quote.commodity],
+    ["Weight",quote.weight],["Pallets",quote.pallet_count],["Equipment",quote.equipment_type],
+    ["Urgency",quote.urgency],["Shipment notes",quote.shipment_details],
+    ["Received",quote.created_at],["Reference",quote.id]
+  ];
+  const rows=fields.map(([label,value])=>'<tr><th align="left" style="padding:10px;border-bottom:1px solid #dde8f4;color:#405671">'+emailEscape(label)+'</th><td style="padding:10px;border-bottom:1px solid #dde8f4">'+emailEscape(value || "Not provided")+'</td></tr>').join("");
+  const crm="https://blue-logistics-sales-one.vercel.app/quote-opportunities";
+  return '<!doctype html><html><body style="margin:0;padding:25px;background:#f2f6fb;font-family:Arial,sans-serif;color:#102843"><div style="max-width:680px;margin:auto;background:white;border-radius:14px;overflow:hidden"><div style="background:#081f3b;color:white;padding:26px"><b style="font-size:23px">BLUE LOGISTICS LLC</b><p>NEW WEBSITE FREIGHT QUOTE</p></div><div style="padding:24px"><h2>'+emailEscape(quote.pickup_location)+' → '+emailEscape(quote.delivery_location)+'</h2><table width="100%" style="border-collapse:collapse">'+rows+'</table><p><a href="'+crm+'" style="display:inline-block;background:#087ff5;color:white;padding:14px 22px;border-radius:8px;text-decoration:none;font-weight:bold">VIEW QUOTE IN CRM</a></p><p>Quote intake recorded successfully. Email provider acceptance is not delivery confirmation.</p></div></div></body></html>';
+}
+// Durable outbox; never fail the customer's already-saved quote merely because notifications are unavailable.
+async function queueAndNotifyOwner(admin:any, quote:any){
+  const outbox=admin.from("quote_owner_email_notifications");
+  const {error:queueError}=await outbox.upsert({quote_request_id:quote.id,status:"pending"},{onConflict:"quote_request_id",ignoreDuplicates:true});
+  if(queueError){console.error("Quote alert could not be queued",queueError.message);return {status:"queue_failed"}}
+  const {data:current,error:readError}=await outbox.select("status").eq("quote_request_id",quote.id).single();
+  if(readError)return {status:"queue_unavailable"};
+  if(current.status==="accepted"||current.status==="delivered")return {status:current.status};
+  const key=Deno.env.get("RESEND_API_KEY");
+  if(!key)return {status:"pending_configuration"};
+  // One deterministic provider idempotency key per quote; future retries reuse it.
+  const subject=(quote.urgency==="Urgent"?"🔥 URGENT FREIGHT QUOTE":"🚨 NEW BLUE LOGISTICS FREIGHT QUOTE")+
+   " — "+clean(quote.pickup_location,80)+" → "+clean(quote.delivery_location,80);
+  try{
+    const response=await fetch("https://api.resend.com/emails",{
+      method:"POST",headers:{"Authorization":"Bearer "+key,"Content-Type":"application/json","Idempotency-Key":"website-quote-"+quote.id},
+      body:JSON.stringify({from:Deno.env.get("QUOTE_ALERT_FROM")||"Blue Logistics Quotes <quotes@shipbluelogistics.com>",
+        to:["hmblue@shipbluelogistics.com"],subject,html:alertHtml(quote),
+        reply_to:quote.email})
+    });
+    const result=await response.json().catch(()=>({}));
+    if(!response.ok){
+      await outbox.update({status:"failed",last_error:clean(result.message||"Email API returned "+response.status,500),last_attempt_at:new Date().toISOString(),attempt_count:1}).eq("quote_request_id",quote.id).eq("status","pending");
+      console.error("Quote owner email provider rejected",response.status);
+      return {status:"failed"};
+    }
+    await outbox.update({status:"accepted",provider_message_id:result.id||null,last_attempt_at:new Date().toISOString(),attempt_count:1,last_error:null}).eq("quote_request_id",quote.id).eq("status","pending");
+    return {status:"accepted"};
+  }catch(e){
+    await outbox.update({status:"failed",last_error:clean((e as Error).message,500),last_attempt_at:new Date().toISOString(),attempt_count:1}).eq("quote_request_id",quote.id).eq("status","pending");
+    console.error("Quote owner email request failed");
+    return {status:"failed"};
+  }
+}
+
 async function sendCustomerSms(quote: any) {
   if (!quote.sms_opt_in) return "skipped";
   const to = phoneE164(quote.phone); if (!to) return "invalid_phone";
@@ -126,7 +180,8 @@ Deno.serve(async (req: Request) => {
     const smsStatus = await sendCustomerSms({ ...data, sms_opt_in: record.sms_opt_in });
     await admin.from("public_quote_requests").update({ sms_status: smsStatus }).eq("id", data.id);
     const push = await sendOwnerPush(admin, data);
-    return new Response(JSON.stringify({ ok: true, request_id: data.id, readiness_score: data.readiness_score, urgency: data.urgency, push_sent: push.sent, attachment_count: files.length, sms_status: smsStatus, source_detail: sourceDetail }), { status: 200, headers: cors(origin) });
+    const ownerEmail = await queueAndNotifyOwner(admin,data);
+    return new Response(JSON.stringify({ ok: true, request_id: data.id, readiness_score: data.readiness_score, urgency: data.urgency, push_sent: push.sent, attachment_count: files.length, sms_status: smsStatus, owner_email_status:ownerEmail.status, source_detail: sourceDetail }), { status: 200, headers: cors(origin) });
   } catch (e) {
     console.error("public quote intake failed", e);
     return new Response(JSON.stringify({ error: "We couldn't submit your quote request. Please try again or email hmblue@shipbluelogistics.com." }), { status: 500, headers: cors(origin) });
